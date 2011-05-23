@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  level: 1
+  hit_die_roll: 1
+
+two:
+  level: 1
+  hit_die_roll: 1

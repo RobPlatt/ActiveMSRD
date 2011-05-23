@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  class_name: MyString
+  skill_points: 1
+  action_points: 1
+  hit_die: 1
+
+two:
+  class_name: MyString
+  skill_points: 1
+  action_points: 1
+  hit_die: 1

@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  class_name: MyString
+  level: 1
+  bab: 1
+  base_fort: 1
+  base_ref: 1
+  base_will: 1
+  defence_bonus: 1
+  reputation_bonus: 1
+  code: MyText
+
+two:
+  class_name: MyString
+  level: 1
+  bab: 1
+  base_fort: 1
+  base_ref: 1
+  base_will: 1
+  defence_bonus: 1
+  reputation_bonus: 1
+  code: MyText
