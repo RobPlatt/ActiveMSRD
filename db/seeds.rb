@@ -42,3 +42,56 @@ ModernClass.create([
     :hit_die => 6 }
     
   ])
+
+ClassLevel.create([
+  { :modern_class_id => 1,
+    :level => 1,
+    :bab => 1, :base_fort => 1, :base_ref => 0, :base_will => 0,
+    :defence_bonus => 1, :reputation_bonus => 0 },
+    
+  { :modern_class_id => 1,
+    :level => 2,
+    :bab => 2, :base_fort => 2, :base_ref => 0, :base_will => 0,
+    :defence_bonus => 2, :reputation_bonus => 0 },
+
+  { :modern_class_id => 1,
+    :level => 3,
+    :bab => 3, :base_fort => 2, :base_ref => 1, :base_will => 1,
+    :defence_bonus => 2, :reputation_bonus => 0 },
+
+  { :modern_class_id => 1,
+    :level => 4,
+    :bab => 4, :base_fort => 3, :base_ref => 1, :base_will => 1,
+    :defence_bonus => 3, :reputation_bonus => 0 },
+
+  { :modern_class_id => 1,
+    :level => 5,
+    :bab => 5, :base_fort => 3, :base_ref => 1, :base_will => 1,
+    :defence_bonus => 3, :reputation_bonus => 1 },
+
+  { :modern_class_id => 1,
+    :level => 6,
+    :bab => 6, :base_fort => 3, :base_ref => 2, :base_will => 2,
+    :defence_bonus => 3, :reputation_bonus => 1 },
+
+  { :modern_class_id => 1,
+    :level => 7,
+    :bab => 7, :base_fort => 4, :base_ref => 2, :base_will => 2,
+    :defence_bonus => 4, :reputation_bonus => 1 },
+
+  { :modern_class_id => 1,
+    :level => 8,
+    :bab => 8, :base_fort => 4, :base_ref => 2, :base_will => 2,
+    :defence_bonus => 4, :reputation_bonus => 1 },
+
+  { :modern_class_id => 1,
+    :level => 9,
+    :bab => 9, :base_fort => 5, :base_ref => 3, :base_will => 3,
+    :defence_bonus => 5, :reputation_bonus => 2 },
+
+  { :modern_class_id => 1,
+    :level => 10,
+    :bab => 10, :base_fort => 5, :base_ref => 3, :base_will => 3,
+    :defence_bonus => 5, :reputation_bonus => 2 }
+      
+])

@@ -17,4 +17,27 @@ rounded down, at 1st level and every time they attain a new level in this class
 <b>Skill Points at Each Additional Level: </b>
 <%= @modern_class.skill_points %> + Int modifier
 </p>
-<h2>Levels</h2>
+<table>
+  <tr>
+    <th>Class Level</th>
+    <th>Base Attack Bonus</th>
+    <th>Fort Save</th>
+    <th>Ref Save</th>
+    <th>Will Save</th>
+    <th>Class Features</th>
+    <th>Defence Bonus</th>
+    <th>Reputation Bonus</th>
+  </tr>
+<% @modern_class.class_levels.each do |level| %>
+<tr>
+    <td><%= level.level %></td>
+    <td><%= "%+d" % level.bab %></td>
+    <td><%= "%+d" % level.base_fort %></td>
+    <td><%= "%+d" % level.base_ref %></td>
+    <td><%= "%+d" % level.base_will %></td>
+    <td></td>
+    <td><%= "%+d" % level.defence_bonus %></td>
+    <td><%= "%+d" % level.reputation_bonus %></td>  
+</tr>
+<% end %>
+</table>

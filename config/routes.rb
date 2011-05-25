@@ -1,7 +1,9 @@
 ActiveMSRD::Application.routes.draw do
   resources :notes
   resources :races
-  resources :modern_classes
+  resources :modern_classes do
+    resources :class_levels
+  end
 
   get "modern_classes/index"
 
