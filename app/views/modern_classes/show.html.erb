@@ -1,5 +1,9 @@
 <h1><%= @modern_class.class_name %></h1>
 <p>
+<b>Key ability score:</b>
+<%= @modern_class.primary_stat %>
+</p>
+<p>
 <b>Hit Die: </b>
 1d<%= @modern_class.hit_die %>
 </p>
@@ -41,3 +45,6 @@ rounded down, at 1st level and every time they attain a new level in this class
 </tr>
 <% end %>
 </table>
+<p>
+<%= link_to 'Back to Classes', modern_classes_path %>
+</p>
