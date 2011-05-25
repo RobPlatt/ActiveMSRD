@@ -1,2 +1,20 @@
-<h1>ModernClasses#show</h1>
-<p>Find me in app/views/modern_classes/show.html.erb</p>
+<h1><%= @modern_class.class_name %></h1>
+<p>
+<b>Hit Die: </b>
+1d<%= @modern_class.hit_die %>
+</p>
+<p>
+<b>Action Points</b>
+The <%= @modern_class.class_name %> gains a number of action points equal to 
+<%= @modern_class.action_points %> + one-half their character level,
+rounded down, at 1st level and every time they attain a new level in this class
+</p>
+<p>
+<b>Skill Points at 1st level: </b>
+(<%= @modern_class.skill_points %> + Int modifier) x 4
+</p>
+<p>
+<b>Skill Points at Each Additional Level: </b>
+<%= @modern_class.skill_points %> + Int modifier
+</p>
+<h2>Levels</h2>
