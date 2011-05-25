@@ -1,4 +1,16 @@
 ActiveMSRD::Application.routes.draw do
+  resources :notes
+  resources :races
+  resources :modern_classes
+
+  get "modern_classes/index"
+
+  get "modern_classes/show"
+
+  get "races/index"
+
+  get "races/show"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

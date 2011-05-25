@@ -1,0 +1,21 @@
+<h1>ModernClasses#index</h1>
+
+<table>
+  <tr>
+    <th>Class</th>
+    <th>Skill Points</th>
+    <th>Action Points</th>
+    <th>Hit Die</th>
+    <th></th>
+  </tr>
+ 
+<% @modern_classes.each do |modern_class| %>
+  <tr>
+    <td><%= modern_class.class_name %></td>
+    <td><%= modern_class.skill_points %></td>
+    <td><%= modern_class.action_points %></td>
+    <td><%= modern_class.hit_die %></td>
+    <td><%= link_to 'Show', modern_class_path(modern_class) %></td>
+  </tr>
+<% end %>
+</table>

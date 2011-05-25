@@ -1,0 +1,19 @@
+<h1>Races#index</h1>
+ 
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Size</th>
+    <th>Base Speed</th>
+    <th></th>
+  </tr>
+ 
+<% @races.each do |race| %>
+  <tr>
+    <td><%= race.name %></td>
+    <td><%= race.size %></td>
+    <td><%= race.base_speed %></td>
+    <td><%= link_to 'Show', race %></td>
+  </tr>
+<% end %>
+</table>

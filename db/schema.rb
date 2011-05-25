@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110523181128) do
+ActiveRecord::Schema.define(:version => 20110525094630) do
 
   create_table "character_levels", :force => true do |t|
     t.integer  "character_id"
@@ -53,6 +53,13 @@ ActiveRecord::Schema.define(:version => 20110523181128) do
     t.integer  "skill_points"
     t.integer  "action_points"
     t.integer  "hit_die"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notes", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
