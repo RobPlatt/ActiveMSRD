@@ -1,4 +1,6 @@
 ActiveMSRD::Application.routes.draw do
+  get "home/index"
+
   resources :notes
   resources :races
   resources :modern_classes do
