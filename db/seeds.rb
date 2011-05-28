@@ -13,6 +13,7 @@ ModernClass.find_or_create_by_class_name(:class_name => 'Strong Hero').update_at
     :bab => 'full',
     :good_fort => true,
     :defence_bonus => 'average',
+    :reputation_bonus => 'poor',
     :skill_points => 2,
     :action_points => 5,
     :hit_die => 8
@@ -21,6 +22,10 @@ ModernClass.find_or_create_by_class_name(:class_name => 'Strong Hero').update_at
 ModernClass.find_or_create_by_class_name(:class_name => 'Fast Hero').update_attributes(
   {
     :primary_stat => 'dexterity',
+    :bab => 'three-quarters',
+    :good_ref => true,
+    :defence_bonus => 'excellent',
+    :reputation_bonus => 'average',
     :skill_points => 4,
     :action_points => 5,
     :hit_die => 8
@@ -29,6 +34,10 @@ ModernClass.find_or_create_by_class_name(:class_name => 'Fast Hero').update_attr
 ModernClass.find_or_create_by_class_name(:class_name => 'Tough Hero').update_attributes(
   {
     :primary_stat => 'constitution',
+    :bab => 'three-quarters',
+    :good_fort => true,
+    :defence_bonus => 'average',
+    :reputation_bonus => 'average',
     :skill_points => 2,
     :action_points => 5,
     :hit_die => 10
@@ -37,6 +46,10 @@ ModernClass.find_or_create_by_class_name(:class_name => 'Tough Hero').update_att
 ModernClass.find_or_create_by_class_name(:class_name => 'Smart Hero').update_attributes(
   {
     :primary_stat => 'intelligence',
+    :bab => 'half',
+    :good_will => true,
+    :defence_bonus => 'poor',
+    :reputation_bonus => 'good',
     :skill_points => 8,
     :action_points => 5,
     :hit_die => 6
@@ -45,6 +58,11 @@ ModernClass.find_or_create_by_class_name(:class_name => 'Smart Hero').update_att
 ModernClass.find_or_create_by_class_name(:class_name => 'Dedicated Hero').update_attributes( 
   {
     :primary_stat => 'wisdom',
+    :bab => 'three-quarters',
+    :good_fort => true,
+    :good_will => true,
+    :defence_bonus => 'average',
+    :reputation_bonus => 'good',
     :skill_points => 4,
     :action_points => 5,
     :hit_die => 6
@@ -53,6 +71,11 @@ ModernClass.find_or_create_by_class_name(:class_name => 'Dedicated Hero').update
 ModernClass.find_or_create_by_class_name(:class_name => 'Charismatic Hero').update_attributes(
   {
     :primary_stat => 'charisma',
+    :bab => 'half',
+    :good_fort => true,
+    :good_ref => true,
+    :defence_bonus => 'poor',
+    :reputation_bonus => 'excellent',
     :skill_points => 6,
     :action_points => 5,
     :hit_die => 6
@@ -60,19 +83,87 @@ ModernClass.find_or_create_by_class_name(:class_name => 'Charismatic Hero').upda
 
 ClassLevel.seed('Strong Hero',
   [
-  {:reputation_bonus => 0 },
-  {:reputation_bonus => 0 },
-  {:reputation_bonus => 0 },
-  {:reputation_bonus => 0 },
-  {:reputation_bonus => 1 },
-  {:reputation_bonus => 1 },
-  {:reputation_bonus => 1 },
-  {:reputation_bonus => 1 },
-  {:reputation_bonus => 2 },
-  {:reputation_bonus => 2 }
+  { },
+  { },
+  { },
+  { },
+  { },
+  { },
+  { },
+  { },
+  { },
+  { }
   ])
 
-
+ClassLevel.seed('Fast Hero',
+  [
+  { },
+  { },
+  { },
+  { },
+  { },
+  { },
+  { },
+  { },
+  { },
+  { }
+  ])
+  
+ClassLevel.seed('Tough Hero',
+  [
+  { },
+  { },
+  { },
+  { },
+  { },
+  { },
+  { },
+  { },
+  { },
+  { }
+  ])
+  
+ClassLevel.seed('Smart Hero',
+  [
+  { },
+  { },
+  { },
+  { },
+  { },
+  { },
+  { },
+  { },
+  { },
+  { }
+  ])
+  
+ClassLevel.seed('Dedicated Hero',
+  [
+  { },
+  { },
+  { },
+  { },
+  { },
+  { },
+  { },
+  { },
+  { },
+  { }
+  ])
+  
+ClassLevel.seed('Charismatic Hero',
+  [
+  { },
+  { },
+  { },
+  { },
+  { },
+  { },
+  { },
+  { },
+  { },
+  { }
+  ])
 =begin
 ClassLevel.find_or_create_by_modern_class_id_and_level([
   ###################
