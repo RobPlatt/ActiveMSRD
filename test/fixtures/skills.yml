@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  skill_name: MyString
+  trained_only: false
+  armor_penalty: false
+  key_ability: MyString
+
+two:
+  skill_name: MyString
+  trained_only: false
+  armor_penalty: false
+  key_ability: MyString

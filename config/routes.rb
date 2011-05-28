@@ -1,5 +1,7 @@
 ActiveMSRD::Application.routes.draw do
 
+  get "skills/index"
+
   get "home/index"
 
   get "modern_classes/index"
@@ -14,6 +16,7 @@ ActiveMSRD::Application.routes.draw do
 
   resources :notes
   resources :races
+  resources :skills
   resources :modern_classes do
     resources :class_levels
   end

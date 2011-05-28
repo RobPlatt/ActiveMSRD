@@ -3,6 +3,76 @@
 # All MSRD content should go in here.
 #
 
+Skill.seed( [
+  {:skill_name => 'balance', :key_ability => 'dex', :armor_penalty => 'true' },
+  {:skill_name => 'bluff', :key_ability => 'cha'},
+  {:skill_name => 'Climb', :key_ability => 'str', :armor_penalty => 'true' },
+  {:skill_name => 'Computer Use', :key_ability => 'int' },
+  {:skill_name => 'Concentration', :key_ability => 'con' },
+  {:skill_name => 'Craft (chemical)', :key_ability => 'int', :trained_only => true },
+  {:skill_name => 'Craft (electronic)', :key_ability => 'int', :trained_only => true },
+  {:skill_name => 'Craft (mechanical)', :key_ability => 'int', :trained_only => true },
+  {:skill_name => 'Craft (pharmaceutical)', :key_ability => 'int', :trained_only => true },
+  {:skill_name => 'Craft (structural)', :key_ability => 'int' },
+  {:skill_name => 'Craft (visual art)', :key_ability => 'int' },
+  {:skill_name => 'Craft (writing)', :key_ability => 'int' },
+  {:skill_name => 'Decipher Script', :key_ability => 'int', :trained_only => true },
+  {:skill_name => 'Demolitions', :key_ability => 'int', :trained_only => true },
+  {:skill_name => 'Diplomacy', :key_ability => 'cha' },
+  {:skill_name => 'Disable Device', :key_ability => 'int', :trained_only => true },
+  {:skill_name => 'Disguise', :key_ability => 'cha' },
+  {:skill_name => 'Drive', :key_ability => 'dex' },
+  {:skill_name => 'Escape Artist', :key_ability => 'dex' },
+  {:skill_name => 'Forgery', :key_ability => 'int' },
+  {:skill_name => 'Gamble', :key_ability => 'wis' },
+  {:skill_name => 'Gather Information', :key_ability => 'cha' },
+  {:skill_name => 'Handle Animal', :key_ability => 'cha' },
+  {:skill_name => 'Hide', :key_ability => 'dex', :armor_penalty => 'true' },
+  {:skill_name => 'Intimidate', :key_ability => 'cha' },
+  {:skill_name => 'Investigate', :key_ability => 'int', :trained_only => true },
+  {:skill_name => 'Jump', :key_ability => 'str', :armor_penalty => 'true' },
+  {:skill_name => 'Knowledge (Arcane Lore)', :key_ability => 'int', :trained_only => true },
+  {:skill_name => 'Knowledge (Art)', :key_ability => 'int', :trained_only => true },
+  {:skill_name => 'Knowledge (Behavioral Sciences)', :key_ability => 'int', :trained_only => true },
+  {:skill_name => 'Knowledge (Business)', :key_ability => 'int', :trained_only => true },
+  {:skill_name => 'Knowledge (Civics)', :key_ability => 'int', :trained_only => true },
+  {:skill_name => 'Knowledge (Current Events)', :key_ability => 'int', :trained_only => true },
+  {:skill_name => 'Knowledge (Earth and Life Sciences)', :key_ability => 'int', :trained_only => true },
+  {:skill_name => 'Knowledge (History)', :key_ability => 'int', :trained_only => true },
+  {:skill_name => 'Knowledge (Physical Sciences)', :key_ability => 'int', :trained_only => true },
+  {:skill_name => 'Knowledge (Popular Culture)', :key_ability => 'int', :trained_only => true },
+  {:skill_name => 'Knowledge (Streetwise)', :key_ability => 'int', :trained_only => true },
+  {:skill_name => 'Knowledge (Tactics)', :key_ability => 'int', :trained_only => true },
+  {:skill_name => 'Knowledge (Technology)', :key_ability => 'int', :trained_only => true },
+  {:skill_name => 'Knowledge (Theology)', :key_ability => 'int', :trained_only => true },
+  {:skill_name => 'Listen', :key_ability => 'wis' },
+  {:skill_name => 'Move Silently', :key_ability => 'dex', :armor_penalty => 'true' },
+  {:skill_name => 'Navigate', :key_ability => 'int' },
+  {:skill_name => 'Perform (Act)', :key_ability => 'cha' },
+  {:skill_name => 'Perform (Dance)', :key_ability => 'cha' },
+  {:skill_name => 'Perform (Keyboards)', :key_ability => 'cha' },
+  {:skill_name => 'Perform (Percussion Instruments)', :key_ability => 'cha' },
+  {:skill_name => 'Perform (Sing)', :key_ability => 'cha' },
+  {:skill_name => 'Perform (Stand-Up)', :key_ability => 'cha' },
+  {:skill_name => 'Perform (Stringed Instruments)', :key_ability => 'cha' },
+  {:skill_name => 'Perform (Wind Instruments)', :key_ability => 'cha' },
+  {:skill_name => 'Pilot', :key_ability => 'dex', :trained_only => true },
+  {:skill_name => 'Profession', :key_ability => 'wis' },
+  {:skill_name => 'Read/Write Language', :key_ability => 'none', :trained_only => true },
+  {:skill_name => 'Repair', :key_ability => 'int', :trained_only => true },
+  {:skill_name => 'Research', :key_ability => 'int' },
+  {:skill_name => 'Ride', :key_ability => 'dex' },
+  {:skill_name => 'Search', :key_ability => 'int' },
+  {:skill_name => 'Sense Motive', :key_ability => 'wis' },
+  {:skill_name => 'Sleight of Hand', :key_ability => 'dex', :trained_only => true, :armor_penalty => 'true' },
+  {:skill_name => 'Speak Language', :key_ability => 'none', :trained_only => true },
+  {:skill_name => 'Spot', :key_ability => 'wis' },
+  {:skill_name => 'Survival', :key_ability => 'wis' },
+  {:skill_name => 'Swim', :key_ability => 'str', :armor_penalty => 'true' },
+  {:skill_name => 'Treat Injury', :key_ability => 'wis' },
+  {:skill_name => 'Tumble', :key_ability => 'dex', :trained_only => true, :armor_penalty => 'true' }
+    ])
+
 Race.find_or_create_by_name(:name => 'human')
 Race.find_or_create_by_name(:name => 'gnome').update_attributes(
   { :name => 'gnome', :base_speed => 20, :size => 'small'})
@@ -164,6 +234,8 @@ ClassLevel.seed('Charismatic Hero',
   { },
   { }
   ])
+  
+
 =begin
 ClassLevel.find_or_create_by_modern_class_id_and_level([
   ###################

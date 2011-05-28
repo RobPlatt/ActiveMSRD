@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110528125703) do
+ActiveRecord::Schema.define(:version => 20110528180927) do
 
   create_table "character_levels", :force => true do |t|
     t.integer  "character_id"
@@ -48,6 +48,13 @@ ActiveRecord::Schema.define(:version => 20110528125703) do
     t.datetime "updated_at"
   end
 
+  create_table "class_skills", :force => true do |t|
+    t.integer  "modern_class_id"
+    t.integer  "skill_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "modern_classes", :force => true do |t|
     t.string   "class_name"
     t.integer  "skill_points"
@@ -77,6 +84,15 @@ ActiveRecord::Schema.define(:version => 20110528125703) do
     t.string   "size",        :default => "medium"
     t.integer  "base_speed",  :default => 30
     t.text     "code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "skills", :force => true do |t|
+    t.string   "skill_name"
+    t.boolean  "trained_only",  :default => false
+    t.boolean  "armor_penalty", :default => false
+    t.string   "key_ability"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

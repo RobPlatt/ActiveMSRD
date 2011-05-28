@@ -1,0 +1,10 @@
+<h1>Skills</h1>
+ 
+<ul>
+<% @skills.each do |skill| %>
+<li><%= skill.skill_name %> (<%= skill.key_ability %>)
+  <% if skill.trained_only %>Trained Only<% end %><% if skill.trained_only and skill.armor_penalty %>; <% end %>
+  <% if skill.armor_penalty %>Armor Penalty<% end %>
+<% end %>
+</ul>
+
