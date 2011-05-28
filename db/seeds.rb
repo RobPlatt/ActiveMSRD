@@ -10,6 +10,9 @@ Race.find_or_create_by_name(:name => 'gnome').update_attributes(
 ModernClass.find_or_create_by_class_name(:class_name => 'Strong Hero').update_attributes(
   {
     :primary_stat => 'strength',
+    :bab => 'full',
+    :good_fort => true,
+    :defence_bonus => 'average',
     :skill_points => 2,
     :action_points => 5,
     :hit_die => 8
@@ -57,45 +60,16 @@ ModernClass.find_or_create_by_class_name(:class_name => 'Charismatic Hero').upda
 
 ClassLevel.seed('Strong Hero',
   [
-  {
-    :bab => 1, :base_fort => 1, :base_ref => 0, :base_will => 0,
-    :defence_bonus => 1, :reputation_bonus => 0 },
-    
-  {
-    :bab => 2, :base_fort => 2, :base_ref => 0, :base_will => 0,
-    :defence_bonus => 2, :reputation_bonus => 0 },
-
-  {
-    :bab => 3, :base_fort => 2, :base_ref => 1, :base_will => 1,
-    :defence_bonus => 2, :reputation_bonus => 0 },
-
-  {
-    :bab => 4, :base_fort => 3, :base_ref => 1, :base_will => 1,
-    :defence_bonus => 3, :reputation_bonus => 0 },
-
-  {
-    :bab => 5, :base_fort => 3, :base_ref => 1, :base_will => 1,
-    :defence_bonus => 3, :reputation_bonus => 1 },
-
-  {
-    :bab => 6, :base_fort => 3, :base_ref => 2, :base_will => 2,
-    :defence_bonus => 3, :reputation_bonus => 1 },
-
-  {
-    :bab => 7, :base_fort => 4, :base_ref => 2, :base_will => 2,
-    :defence_bonus => 4, :reputation_bonus => 1 },
-
-  {
-    :bab => 8, :base_fort => 4, :base_ref => 2, :base_will => 2,
-    :defence_bonus => 4, :reputation_bonus => 1 },
-
-  {
-    :bab => 9, :base_fort => 5, :base_ref => 3, :base_will => 3,
-    :defence_bonus => 5, :reputation_bonus => 2 },
-
-  {
-    :bab => 10, :base_fort => 5, :base_ref => 3, :base_will => 3,
-    :defence_bonus => 5, :reputation_bonus => 2 }
+  {:reputation_bonus => 0 },
+  {:reputation_bonus => 0 },
+  {:reputation_bonus => 0 },
+  {:reputation_bonus => 0 },
+  {:reputation_bonus => 1 },
+  {:reputation_bonus => 1 },
+  {:reputation_bonus => 1 },
+  {:reputation_bonus => 1 },
+  {:reputation_bonus => 2 },
+  {:reputation_bonus => 2 }
   ])
 
 

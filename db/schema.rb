@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110525154815) do
+ActiveRecord::Schema.define(:version => 20110528125703) do
 
   create_table "character_levels", :force => true do |t|
     t.integer  "character_id"
@@ -56,6 +56,12 @@ ActiveRecord::Schema.define(:version => 20110525154815) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "primary_stat"
+    t.string   "bab",              :default => "half"
+    t.boolean  "good_fort",        :default => false
+    t.boolean  "good_ref",         :default => false
+    t.boolean  "good_will",        :default => false
+    t.string   "defence_bonus",    :default => "average"
+    t.string   "reputation_bonus", :default => "average"
   end
 
   create_table "notes", :force => true do |t|
