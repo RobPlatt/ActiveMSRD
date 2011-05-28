@@ -1,11 +1,6 @@
 ActiveMSRD::Application.routes.draw do
-  get "home/index"
 
-  resources :notes
-  resources :races
-  resources :modern_classes do
-    resources :class_levels
-  end
+  get "home/index"
 
   get "modern_classes/index"
 
@@ -14,6 +9,14 @@ ActiveMSRD::Application.routes.draw do
   get "races/index"
 
   get "races/show"
+
+  root :to => "home#index"
+
+  resources :notes
+  resources :races
+  resources :modern_classes do
+    resources :class_levels
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

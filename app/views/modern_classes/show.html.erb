@@ -32,7 +32,7 @@ rounded down, at 1st level and every time they attain a new level in this class
     <th>Defence Bonus</th>
     <th>Reputation Bonus</th>
   </tr>
-<% @modern_class.class_levels.each do |level| %>
+<% @modern_class.each_level do |level| %>
 <tr>
     <td><%= level.level %></td>
     <td><%= "%+d" % level.bab %></td>
