@@ -8,10 +8,14 @@
 1d<%= @modern_class.hit_die %>
 </p>
 <p>
-<b>Action Points</b>
+<b>Action Points: </b>
 The <%= @modern_class.class_name %> gains a number of action points equal to 
 <%= @modern_class.action_points %> + one-half their character level,
 rounded down, at 1st level and every time they attain a new level in this class
+</p>
+<p>
+<b>Class Skills: </b>
+<%= @modern_class.skills.collect {|c| c.skill_name}.join(", ") %>
 </p>
 <p>
 <b>Skill Points at 1st level: </b>

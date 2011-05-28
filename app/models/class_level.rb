@@ -43,8 +43,7 @@ class ClassLevel < ActiveRecord::Base
     end
   end
  
-  def self.seed(class_name, levels)
-    modern_class = ModernClass.find_by_class_name(class_name)
+  def self.seed(modern_class, levels)
     level_number = 1
     levels.each do |level_data|
       

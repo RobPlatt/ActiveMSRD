@@ -19,6 +19,7 @@ ActiveMSRD::Application.routes.draw do
   resources :skills
   resources :modern_classes do
     resources :class_levels
+    resources :class_skills
   end
 
   # The priority is based upon order of creation:
