@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110528180927) do
+ActiveRecord::Schema.define(:version => 20110528204921) do
 
   create_table "character_levels", :force => true do |t|
     t.integer  "character_id"
@@ -20,7 +20,16 @@ ActiveRecord::Schema.define(:version => 20110528180927) do
     t.datetime "updated_at"
   end
 
-  create_table "characters", :primary_key => "name", :force => true do |t|
+  create_table "character_skills", :force => true do |t|
+    t.integer  "character_id"
+    t.integer  "skill_id"
+    t.integer  "ranks",        :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "characters", :force => true do |t|
+    t.string   "name"
     t.text     "description"
     t.text     "code"
     t.integer  "starting_str", :default => 10

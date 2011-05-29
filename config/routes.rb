@@ -1,5 +1,15 @@
 ActiveMSRD::Application.routes.draw do
 
+  get "license/index"
+
+  get "license/ogl"
+
+  get "license/gpl"
+
+  get "characters/index"
+
+  get "characters/show"
+
   get "skills/index"
 
   get "home/index"
@@ -17,6 +27,10 @@ ActiveMSRD::Application.routes.draw do
   resources :notes
   resources :races
   resources :skills
+  resources :characters do
+    resources :character_levels
+    resources :character_skills
+  end
   resources :modern_classes do
     resources :class_levels
     resources :class_skills

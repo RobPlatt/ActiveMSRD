@@ -3,6 +3,8 @@
 # All MSRD content should go in here.
 #
 
+puts "Seeding MSRD skills..."
+
 Skill.seed( [
   {:skill_name => 'balance', :key_ability => 'dex', :armor_penalty => 'true' },
   {:skill_name => 'bluff', :key_ability => 'cha'},
@@ -73,9 +75,14 @@ Skill.seed( [
   {:skill_name => 'Tumble', :key_ability => 'dex', :trained_only => true, :armor_penalty => 'true' }
     ])
 
+puts "Seeding MSRD races..."
+
 Race.find_or_create_by_name(:name => 'human')
 Race.find_or_create_by_name(:name => 'gnome').update_attributes(
   { :name => 'gnome', :base_speed => 20, :size => 'small'})
+  
+  
+puts "Seeding MSRD classes..."
              
 strong_hero = ModernClass.find_or_create_by_class_name(:class_name => 'Strong Hero')
 strong_hero.update_attributes(
@@ -241,3 +248,17 @@ ClassLevel.seed(charismatic_hero,
   { },
   { }
   ])
+  
+
+puts "Seeding test characters..."
+
+tony_test = Character.find_or_create_by_name(:character_name => 'Tony Test')
+scores = Character.roll_ability_scores(1, 4)
+tony_test.update_attributes({
+  :description => 'A test character',
+  :starting_dex => scores.pop,
+  :starting_con => scores.pop,
+  :starting_str => scores.pop,
+  :starting_int => scores.pop,
+  :starting_cha => scores.pop,
+  :starting_wis => scores.pop})

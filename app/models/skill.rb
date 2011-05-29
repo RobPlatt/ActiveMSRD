@@ -1,6 +1,8 @@
 class Skill < ActiveRecord::Base
   has_many :class_skills, :dependent => :restrict
   has_many :modern_classes, :through => :class_skills
+  has_many :character_skills, :dependent => :restrict
+  has_many :characters, :through => :character_skills
   
   def self.seed(skill_table)
     skill_table.each do
