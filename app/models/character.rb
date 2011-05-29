@@ -4,6 +4,11 @@ class Character < ActiveRecord::Base
   has_many :character_skills, :dependent => :restrict
   has_many :skills, :through => :character_skills
 
+  def self.each_hero
+    sorted_heroes = characters.sort {|x,y|x.level <=> y.level}
+    sorted_heroes.each{|x|yield x}
+  end
+
   def self.roll_d(faces)
     if (faces == nil or faces < 2)
       return 1

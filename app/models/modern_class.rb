@@ -4,7 +4,6 @@ class ModernClass < ActiveRecord::Base
   has_many :skills, :through => :class_skills
   
   def each_level
-    sorted_class_levels = class_levels.sort {|x,y|x.level <=> y.level}
-    sorted_class_levels.each{|x|yield x}
+    class_levels.sort.each{|x|yield x}
   end
 end
