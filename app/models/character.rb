@@ -145,6 +145,38 @@ class Character < ActiveRecord::Base
     return base_bonus('bab')
   end
   
+  def strength_check
+    str_mod + race.strength_check_size_mod
+  end
+  
+  def grapple
+    return bab + strength_check
+  end
+  
+  def start_trip
+    return strength_check + race.stability_mod
+  end
+  
+  def defend_trip
+    if (dex_mod > str_mod)
+      return dex_mod + race.strength_check_size_mod + race.stability_mod
+    else
+      return strength_check + race.stability_mod
+    end
+  end
+  
+  def bull_rush
+    return strength_check + race.stability_mod
+  end
+  
+  def melee_attack
+    return bab + str_mod + race.attack_size_mod
+  end
+
+  def ranged_attack
+    return bab + dex_mod + race.attack_size_mod
+  end
+  
   def base_fort
     return base_bonus('base_fort')
   end
@@ -155,6 +187,22 @@ class Character < ActiveRecord::Base
   
   def base_will
     return base_bonus('base_will')
+  end
+  
+  def class_defence_bonus
+    return base_bonus('defence_bonus')
+  end
+  
+  def reputation
+    return base_bonus('reputation_bonus')
+  end
+  
+  def touch_defence
+    return class_defence_bonus + dex_mod + race.defence_size_mod
+  end
+  
+  def defence
+    return touch_defence # TODO equipment, natural armor
   end
   
   def fort

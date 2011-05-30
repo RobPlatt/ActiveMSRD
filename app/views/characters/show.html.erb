@@ -1,8 +1,9 @@
 <h1><%= @character.name %></h1>
 <p><b><%= show_build(@character) %></b></p>
+<p><b>Reputation: </b><%= "%+d" % @character.reputation %></p>
 <p><b>Description: </b><%= @character.description %></p>
 <p><b>Speed: </b><%= @character.speed %></p>
-<p><b>Initiative: </b><%= @character.initiative %></p>
+<p><b>Initiative: </b><%= "%+d" % @character.initiative %></p>
 <p><b>Hit Points: </b><%= @character.hit_points %></p>
 <table>
 <tr>
@@ -30,13 +31,24 @@
 <td><%= @character.cha %></td>
 </tr>
 </table>
-<p><b>Base Attack Bonus: </b><%= @character.bab %></p>
+<p><b>Defence: </b><%= "%+d" % @character.defence %>,
+<b>Touch: </b><%= "%+d" % @character.touch_defence %>
+</p>
 <table>
 <tr><th>Save</th><th>Bonus</th></tr>
 <tr><td>fortitude</td><td><%= "%+d" % @character.fort %></td></tr>
 <tr><td>reflex</td><td><%= "%+d" % @character.ref %></td></tr>
 <tr><td>wisdom</td><td><%= "%+d" % @character.wis %></td></tr>
 </table>
+<p><b>Base Attack Bonus: </b><%= "%+d" % @character.bab %>,
+<b>Strength Check: </b><%= "%+d" % @character.strength_check %>,
+<b>Grapple: </b><%= "%+d" % @character.grapple %>,
+<b>Start trip: </b><%= "%+d" % @character.start_trip %>,
+<b>Defend trip: </b><%= "%+d" % @character.defend_trip %>,
+<b>Bull rush: </b><%= "%+d" % @character.bull_rush %>,
+<b>Melee Attack: </b><%= "%+d" % @character.melee_attack %>,
+<b>Ranged Attack: </b><%= "%+d" % @character.ranged_attack %></p>
+
 <table>
 <tr>
 <th>Skill Name</th>
