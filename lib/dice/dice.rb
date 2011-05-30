@@ -38,5 +38,9 @@ module Dice
     scores.sort!
     return scores.drop(scores_to_drop)
   end
+  
+  def ordinary_ability_scores
+    return [8, 10, 12, 13, 14, 15]
+  end
 
 end

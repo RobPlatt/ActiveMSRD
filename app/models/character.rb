@@ -27,6 +27,21 @@ class Character < ActiveRecord::Base
     class_levels.sort.each{|x|yield x}
   end
   
+  def effective_character_level
+    return character_levels.count
+  end
+  
+  def challenge_rating
+    ecl = effective_character_level
+    if (is_hero)
+      return ecl
+    elsif (ecl == 1)
+      return "1/2"
+    else
+      return ecl - 1
+    end
+  end
+  
   def roll_hit_dice
     each_level do
       |level|
@@ -36,8 +51,8 @@ class Character < ActiveRecord::Base
       if level.hit_die_roll == nil or level.hit_die_roll < 2 or level.hit_die_roll > die
         # hit die hasn't been rolled yet or has a weird value, roll it now
         
-        # TODO heroes, but not ordinaries, get max hit points at level 1
-        if level.level == 1
+        # Heroes, but not ordinaries, get max hit points at level 1
+        if level.level == 1 and is_hero
           level.update_attributes( :hit_die_roll => die )
         else
           level.update_attributes( :hit_die_roll => roll_d_with_reroll_1(die) ) 

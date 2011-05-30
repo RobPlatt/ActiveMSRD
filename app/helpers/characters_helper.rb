@@ -15,6 +15,11 @@ module CharactersHelper
     end
     a = []
     hash.each {|c, l| a.push(c + " " + l.to_s)}
-    return character.race.name.capitalize + " " + a.join("/")
+    str = character.race.name.capitalize + " " + a.join("/")
+    if (not character.is_hero)
+      str = "Ordinary " + str
+    end
+    
+    return str
   end
 end

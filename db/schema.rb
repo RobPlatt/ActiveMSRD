@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110530144502) do
+ActiveRecord::Schema.define(:version => 20110530153927) do
 
   create_table "character_levels", :force => true do |t|
     t.integer  "character_id"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20110530144502) do
     t.integer  "race_id",      :default => 1
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_hero"
   end
 
   create_table "class_levels", :force => true do |t|
