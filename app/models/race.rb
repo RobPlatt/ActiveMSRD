@@ -24,7 +24,11 @@ class Race < ActiveRecord::Base
   end
   
   def stability_mod
-    return 0
+    if (stable)
+      return 4
+    else
+      return 0
+    end
   end
   
 end

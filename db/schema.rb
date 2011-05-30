@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110530124930) do
+ActiveRecord::Schema.define(:version => 20110530144502) do
 
   create_table "character_levels", :force => true do |t|
     t.integer  "character_id"
@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(:version => 20110530124930) do
     t.text     "code"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "stable"
   end
 
   create_table "skills", :force => true do |t|
