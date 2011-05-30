@@ -1,11 +1,51 @@
 <h1><%= @character.name %></h1>
-
+<p><b><%= show_build(@character) %></b></p>
+<p><b>Description: </b><%= @character.description %></p>
+<p><b>Speed: </b><%= @character.speed %></p>
+<p><b>Initiative: </b><%= @character.initiative %></p>
+<p><b>Hit Points: </b><%= @character.hit_points %></p>
 <table>
-<% @skills.each do |skill| %>
+<tr>
+<th>str</th>
+<th>dex</th>
+<th>con</th>
+<th>int</th>
+<th>wis</th>
+<th>cha</th>
+</tr>
+<tr>
+<td><%= "%+d" % @character.str_mod %></td>
+<td><%= "%+d" % @character.dex_mod %></td>
+<td><%= "%+d" % @character.con_mod %></td>
+<td><%= "%+d" % @character.int_mod %></td>
+<td><%= "%+d" % @character.wis_mod %></td>
+<td><%= "%+d" % @character.cha_mod %></td>
+</tr>
+<tr>
+<td><%= @character.str %></td>
+<td><%= @character.dex %></td>
+<td><%= @character.con %></td>
+<td><%= @character.int %></td>
+<td><%= @character.wis %></td>
+<td><%= @character.cha %></td>
+</tr>
+</table>
+<p><b>Base Attack Bonus: </b><%= @character.bab %></p>
+<table>
+<tr><th>Save</th><th>Bonus</th></tr>
+<tr><td>fortitude</td><td><%= "%+d" % @character.fort %></td></tr>
+<tr><td>reflex</td><td><%= "%+d" % @character.ref %></td></tr>
+<tr><td>wisdom</td><td><%= "%+d" % @character.wis %></td></tr>
+</table>
+<table>
+<tr>
+<th>Skill Name</th>
+<th>Bonus</th>
+</tr>
+<% Skill.each_except_languages do |skill| %>
 <tr>
     <td><%= skill.skill_name %></td>
-    <td>ranks</td>
-    <td>ability</td>
+    <td><%= show_skill_bonus(@character.skill_bonus(skill.skill_name)) %></td>
 </tr>
 <% end %>
 </table>

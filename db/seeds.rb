@@ -3,6 +3,9 @@
 # All MSRD content should go in here.
 #
 
+# include Dice to allow autogeneration of random characters
+include Dice
+
 puts "Seeding MSRD skills..."
 
 Skill.seed( [
@@ -253,12 +256,20 @@ ClassLevel.seed(charismatic_hero,
 puts "Seeding test characters..."
 
 tony_test = Character.find_or_create_by_name(:character_name => 'Tony Test')
-scores = Character.roll_ability_scores(1, 4)
-tony_test.update_attributes({
-  :description => 'A test character',
-  :starting_dex => scores.pop,
-  :starting_con => scores.pop,
-  :starting_str => scores.pop,
-  :starting_int => scores.pop,
-  :starting_cha => scores.pop,
-  :starting_wis => scores.pop})
+#scores = roll_ability_scores(1, 4)
+#tony_test.update_attributes({
+#  :description => 'A test character',
+#  :starting_dex => scores.pop,
+#  :starting_con => scores.pop,
+#  :starting_str => scores.pop,
+#  :starting_int => scores.pop,
+#  :starting_cha => scores.pop,
+#  :starting_wis => scores.pop})
+CharacterLevel.seed(tony_test, [
+  {:class_level_id => strong_hero.level(1).id},
+  {:class_level_id => strong_hero.level(2).id},
+  {:class_level_id => fast_hero.level(1).id},
+  {:class_level_id => fast_hero.level(2).id},
+  {:class_level_id => strong_hero.level(3).id}
+])
+tony_test.roll_hit_dice

@@ -10,4 +10,13 @@ class Skill < ActiveRecord::Base
       Skill.find_or_create_by_skill_name(skill_entry[:skill_name]).update_attributes(skill_entry)
     end
   end
+  
+  def self.each_except_languages
+    Skill.all.each do |skill|
+      if not skill.skill_name.include?(' Language')
+        yield skill
+      end
+    end
+  end
+  
 end

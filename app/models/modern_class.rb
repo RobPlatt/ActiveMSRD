@@ -6,4 +6,8 @@ class ModernClass < ActiveRecord::Base
   def each_level
     class_levels.sort.each{|x|yield x}
   end
+  
+  def level(n)
+    return class_levels.find_by_level(n)
+  end
 end

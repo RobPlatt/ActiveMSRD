@@ -1,5 +1,16 @@
 class ClassLevel < ActiveRecord::Base
   belongs_to :modern_class
+  has_many :character_levels
+  
+  def <=>(other)
+    if self.level < other.level
+      return -1
+    elsif self.level > other.level
+      return 1
+    else
+      return 0
+    end
+  end
   
   def self.calculate_bab_for_level(level_number, bab_type)
     if (bab_type == 'full')

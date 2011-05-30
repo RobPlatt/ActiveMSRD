@@ -10,7 +10,6 @@ class CharactersController < ApplicationController
 
   def show
     @character = Character.find(params[:id])
-    @skills = Skill.all
 
     respond_to do |format|
       format.html # show.html.erb
