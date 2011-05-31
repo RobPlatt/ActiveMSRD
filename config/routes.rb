@@ -24,7 +24,6 @@ ActiveMSRD::Application.routes.draw do
 
   root :to => "home#index"
 
-  resources :notes
   resources :races
   resources :skills
   resources :characters do

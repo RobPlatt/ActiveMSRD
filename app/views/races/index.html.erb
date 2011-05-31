@@ -8,15 +8,13 @@ for public use under the terms of the
     <th>Name</th>
     <th>Size</th>
     <th>Base Speed</th>
-    <th></th>
   </tr>
  
 <% @races.each do |race| %>
   <tr>
-    <td><%= race.name %></td>
+    <td><%= link_to race.name, race %></td>
     <td><%= race.size %></td>
     <td><%= race.base_speed %></td>
-    <td><%= link_to 'Show', race %></td>
   </tr>
 <% end %>
 </table>

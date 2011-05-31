@@ -82,13 +82,6 @@ ActiveRecord::Schema.define(:version => 20110530153927) do
     t.string   "reputation_bonus", :default => "average"
   end
 
-  create_table "notes", :force => true do |t|
-    t.string   "title"
-    t.text     "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "races", :force => true do |t|
     t.string   "name"
     t.text     "description"
