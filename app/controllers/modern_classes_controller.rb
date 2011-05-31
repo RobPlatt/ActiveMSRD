@@ -1,3 +1,5 @@
+require 'Markdown'
+
 class ModernClassesController < ApplicationController
   def index
     @modern_classes = ModernClass.all
@@ -10,6 +12,7 @@ class ModernClassesController < ApplicationController
 
   def show
     @modern_class = ModernClass.find(params[:id])
+    @markdown = Markdown::Document.new('##a header').to_html
 
     respond_to do |format|
       format.html # show.html.erb

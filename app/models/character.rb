@@ -168,8 +168,12 @@ class Character < ActiveRecord::Base
     return bab + strength_check
   end
   
+  def defend_grapple
+    return grapple + race.stability_mod
+  end
+  
   def start_trip
-    return strength_check + race.stability_mod
+    return strength_check
   end
   
   def defend_trip
@@ -181,6 +185,10 @@ class Character < ActiveRecord::Base
   end
   
   def bull_rush
+    return strength_check
+  end
+  
+  def defend_bull_rush
     return strength_check + race.stability_mod
   end
   
