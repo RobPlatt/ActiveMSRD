@@ -258,7 +258,7 @@ puts "Seeding test characters..."
 tony_test = Character.find_or_create_by_name(:name => 'Tony Test')
 scores = roll_ability_scores(1, 4)
 tony_test.update_attributes({
-  :description => 'A test _heroic_ character',
+  :description => "A test _heroic_ character. Friend of [JD][character:John Doe Test]",
   :is_hero => true,
   :starting_dex => scores.pop,
   :starting_con => scores.pop,
@@ -278,7 +278,7 @@ tony_test.roll_hit_dice
 jdoe_test = Character.find_or_create_by_name(:name => 'John Doe Test')
 scores = ordinary_ability_scores
 jdoe_test.update_attributes({
-  :description => 'A test ordinary character',
+  :description => 'A test ordinary, and rather [religious][modern_class:Dedicated Hero] character',
   :starting_wis => scores.pop,
   :starting_cha => scores.pop,
   :starting_int => scores.pop,

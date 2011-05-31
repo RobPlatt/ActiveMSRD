@@ -1,7 +1,15 @@
 class Race < ActiveRecord::Base
   has_many :characters, :dependent => :restrict
   
-    def size_mod
+  def self.from_wiki_link(text)
+    return find_by_name(text)
+  end
+  
+  def to_param
+    "#{id}-#{name.downcase.gsub(/[^[:alnum:]]/,'-')}".gsub(/-{2,}/,'-')
+  end
+  
+  def size_mod
     if (size == 'medium')
       return 0
     elsif (size == 'small')

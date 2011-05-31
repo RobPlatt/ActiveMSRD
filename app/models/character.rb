@@ -19,6 +19,24 @@ class Character < ActiveRecord::Base
   has_many :character_skills, :dependent => :restrict
   has_many :skills, :through => :character_skills
   
+  def <=>(other)
+    if self.name < other.name
+      return -1
+    elsif self.name > other.name
+      return 1
+    else
+      return 0
+    end
+  end
+  
+  def self.from_wiki_link(text)
+    return find_by_name(text)
+  end
+  
+  def to_param
+    "#{id}-#{name.downcase.gsub(/[^[:alnum:]]/,'-')}".gsub(/-{2,}/,'-')
+  end
+  
   def each_level
     character_levels.sort.each{|x|yield x}
   end

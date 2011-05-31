@@ -4,6 +4,14 @@ class Skill < ActiveRecord::Base
   has_many :character_skills, :dependent => :restrict
   has_many :characters, :through => :character_skills
   
+  def to_param
+    "#{id}-#{skill_name.downcase.gsub(/[^[:alnum:]]/,'-')}".gsub(/-{2,}/,'-')
+  end
+  
+  def self.from_wiki_link(text)
+    return find_by_skill_name(text)
+  end
+  
   def self.seed(skill_table)
     skill_table.each do
       |skill_entry|

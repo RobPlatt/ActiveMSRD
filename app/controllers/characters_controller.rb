@@ -10,12 +10,11 @@ class CharactersController < ApplicationController
 
   def show
     @character = Character.find(params[:id])
-    @description = Markdown::Document.new(@character.description).to_html
+    @description = wikify(@character.description)
 
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @character }
     end
   end
-
 end
