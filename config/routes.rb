@@ -1,5 +1,7 @@
 ActiveMSRD::Application.routes.draw do
 
+  resources :pages
+
   get "license/index"
 
   get "license/ogl"

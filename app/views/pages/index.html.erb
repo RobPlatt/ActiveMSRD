@@ -1,0 +1,8 @@
+<% @title="Wiki Pages" %>
+<h1>Wiki Pages</h1>
+<p>
+<em><%= link_to 'New Page', new_page_path %></em><br>
+<% @pages.each do |page| %>
+<%= link_to page.title, page %><br>
+<% end %>
+</p>
