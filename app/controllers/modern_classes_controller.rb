@@ -12,7 +12,7 @@ class ModernClassesController < ApplicationController
 
   def show
     @modern_class = ModernClass.find(params[:id])
-    @markdown = Markdown::Document.new('##a header').to_html
+    #@description = Markdown::Document.new(@modern_class.description).to_html
 
     respond_to do |format|
       format.html # show.html.erb

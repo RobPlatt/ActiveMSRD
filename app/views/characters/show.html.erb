@@ -1,8 +1,7 @@
 <h1><%= @character.name %></h1>
-<p><b><%= show_build(@character) %></b></p>
-<p><b>CR </b><%= @character.challenge_rating %></p>
+<p><b><%= show_build(@character) %>, CR</b><%= @character.challenge_rating %></p>
+<%= raw(@description) %>
 <p><b>Reputation: </b><%= "%+d" % @character.reputation %></p>
-<p><b>Description: </b><%= @character.description %></p>
 <p><b>Speed: </b><%= @character.speed %></p>
 <p><b>Initiative: </b><%= "%+d" % @character.initiative %></p>
 <p><b>Hit Points: </b><%= @character.hit_points %></p>
