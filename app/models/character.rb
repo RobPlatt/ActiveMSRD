@@ -18,6 +18,7 @@ class Character < ActiveRecord::Base
   belongs_to :race
   has_many :character_skills, :dependent => :restrict
   has_many :skills, :through => :character_skills
+  accepts_nested_attributes_for :character_skills
   
   def <=>(other)
     if self.name < other.name

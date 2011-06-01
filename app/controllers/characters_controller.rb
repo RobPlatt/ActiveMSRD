@@ -27,7 +27,10 @@ class CharactersController < ApplicationController
   # GET /characters/new.xml
   def new
     @character = Character.new
-
+    Skill.all.each do |skill|
+      @character.character_skills.build(:character_id => @character.id, :skill_id => skill.id, :ranks => 0)
+    end
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @character }
@@ -43,7 +46,10 @@ class CharactersController < ApplicationController
   # POST /characters.xml
   def create
     @character = Character.new(params[:character])
-
+    Skill.all.each do |skill|
+      CharacterSkill.create(:character_id => @character.id, @skill_id => skill.id)
+    end
+    
     respond_to do |format|
       if @character.save
         format.html { redirect_to(@character, :notice => 'Character was successfully created.') }
