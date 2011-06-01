@@ -1,4 +1,16 @@
   <div class="field">
-    <%= f.object.skill.skill_name %><br />
-    <%= f.text_field :ranks %>
+    <tr>
+    <td><%= f.label :ranks, f.object.skill.skill_name %></td>
+    <td>
+    <% if f.object.ranks == nil or f.object.ranks == 0 %>
+      <%= f.text_field :ranks, :size => 3, :max_length => 2, :value => "" %>
+    <% else %>
+      <%= f.text_field :ranks, :size => 3, :max_length => 2 %>
+    <% end %>
+    </td>
+    <td>
+      / <%= c.max_ranks(f.object.skill_id) %>
+    </td>
+    <%= f.hidden_field :skill_id %>
+    </tr>
   </div>

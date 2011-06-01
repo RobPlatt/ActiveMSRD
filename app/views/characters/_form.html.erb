@@ -57,9 +57,11 @@
     <%= f.text_field :starting_cha %>
   </div>
 
+  <table>
   <%= f.fields_for(:character_skills) do |builder| %>
-  <%= render 'skill_fields', :f => builder %>
+  <%= render 'skill_fields', :f => builder, :c => @character %>
   <% end %>
+  </table>
 
   <div class="actions">
     <%= f.submit %>

@@ -28,7 +28,7 @@ class CharactersController < ApplicationController
   def new
     @character = Character.new
     Skill.all.each do |skill|
-      @character.character_skills.build(:character_id => @character.id, :skill_id => skill.id, :ranks => 0)
+      @character.character_skills.build(:character_id => @character.id, :skill_id => skill.id)
     end
     
     respond_to do |format|
@@ -40,15 +40,19 @@ class CharactersController < ApplicationController
   # GET /characters/1/edit
   def edit
     @character = Character.find(params[:id])
+    # fill in any missing character skills
+    Skill.all.each do |skill|
+      character_skill = @character.character_skills.find_by_skill_id(skill.id)
+      if (not character_skill)
+        @character.character_skills.build(:character_id => @character.id, :skill_id => skill.id)
+      end
+    end
   end
 
   # POST /characters
   # POST /characters.xml
   def create
     @character = Character.new(params[:character])
-    Skill.all.each do |skill|
-      CharacterSkill.create(:character_id => @character.id, @skill_id => skill.id)
-    end
     
     respond_to do |format|
       if @character.save

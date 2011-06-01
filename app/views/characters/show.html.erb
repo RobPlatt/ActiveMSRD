@@ -58,6 +58,7 @@
 <b>Melee Attack: </b><%= "%+d" % @character.melee_attack %>,
 <b>Ranged Attack: </b><%= "%+d" % @character.ranged_attack %></p>
 
+Trainer: <%= @character.character_skills.count %>
 <table>
 <tr>
 <th>Skill Name</th>
@@ -66,7 +67,7 @@
 <% Skill.each_except_languages do |skill| %>
 <tr>
     <td><%= skill.skill_name %></td>
-    <td><%= show_skill_bonus(@character.skill_bonus(skill.skill_name)) %></td>
+    <td><%= show_skill_bonus(@character.skill_bonus(skill.id)) %></td>
 </tr>
 <% end %>
 </table>

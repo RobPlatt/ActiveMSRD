@@ -1,6 +1,7 @@
 class CharacterLevel < ActiveRecord::Base
   belongs_to :character
   belongs_to :class_level
+  has_one    :modern_class, :through => :class_level
   
   def <=>(other)
     if self.level < other.level
