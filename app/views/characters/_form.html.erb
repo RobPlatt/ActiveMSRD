@@ -1,0 +1,63 @@
+<%= form_for(@character) do |f| %>
+  <% if @character.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@character.errors.count, "error") %> prohibited this character from being saved:</h2>
+
+      <ul>
+      <% @character.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :is_hero %><br />
+    <%= select("character", "is_hero", [true, false]) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :race %><br />
+    <%= collection_select(:character, :race_id, Race.all, :id, :name, :prompt => true)
+    %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :starting_str %><br />
+    <%= f.text_field :starting_str %>
+  </div>
+  <div class="field">
+    <%= f.label :starting_dex %><br />
+    <%= f.text_field :starting_dex %>
+  </div>
+  <div class="field">
+    <%= f.label :starting_con %><br />
+    <%= f.text_field :starting_con %>
+  </div>
+  <div class="field">
+    <%= f.label :starting_int %><br />
+    <%= f.text_field :starting_int %>
+  </div>
+  <div class="field">
+    <%= f.label :starting_wis %><br />
+    <%= f.text_field :starting_wis %>
+  </div>
+  <div class="field">
+    <%= f.label :starting_cha %><br />
+    <%= f.text_field :starting_cha %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

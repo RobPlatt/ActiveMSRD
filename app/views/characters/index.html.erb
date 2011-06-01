@@ -1,7 +1,11 @@
 <% @title="Characters" %>
+<p>
+<%= link_to 'Home', :root %>
+</p>
 <h1>Characters</h1>
 
 <ul>
+<li><em><%= link_to 'New Character', new_character_path %></em><br>
 <% @characters.sort.each do |hero| %>
 <li><%= link_to hero.name, character_path(hero) %></td>
 <% end %>

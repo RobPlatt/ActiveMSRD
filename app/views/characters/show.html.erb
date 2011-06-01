@@ -1,7 +1,15 @@
 <% @title=@character.name %>
+<p>
+<%= link_to 'Home', :root %> |
+<%= link_to 'All Characters', characters_path %> |
+<%= link_to 'Edit', edit_character_path(@page) %> |
+<%= link_to 'Delete', @character, :confirm => 'Are you sure?', :method => :delete %>
+</p>
 <h1><%= @character.name %></h1>
 <p><b><%= show_build(@character) %>, CR</b><%= @character.challenge_rating %></p>
+<p>
 <%= raw(@description) %>
+</p>
 <p><b>Reputation: </b><%= "%+d" % @character.reputation %></p>
 <p><b>Speed: </b><%= @character.speed %></p>
 <p><b>Initiative: </b><%= "%+d" % @character.initiative %></p>
