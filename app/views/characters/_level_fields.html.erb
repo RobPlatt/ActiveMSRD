@@ -3,5 +3,11 @@
     <td><%= f.label :level, f.object.level %></td>
      <%= f.hidden_field :level %>
     <td><%= f.collection_select(:class_level_id, c.level_choices, :id, :name, :prompt => true) %>
+
+    <% if f.object.level.modulo(4) == 0 %>
+      <td>
+        <%= f.select(:ability_increase, %w[none str dex con int wis dex] ) %>
+      </td>
+    <% end %>
     </tr>
   </div>

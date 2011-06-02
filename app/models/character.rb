@@ -304,6 +304,9 @@ class Character < ActiveRecord::Base
     class_levels.each do |level|
       if (level.modern_class)
         points = level.modern_class.skill_points + Character.score_to_mod(starting_int)
+        if race.name == 'human'
+          points = points + 1
+        end
         if (level.level == 1)
           total = total + points*4
         else

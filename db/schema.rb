@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110602160852) do
+ActiveRecord::Schema.define(:version => 20110602202022) do
 
   create_table "armors", :force => true do |t|
     t.string   "armor_name"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20110602160852) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "class_level_id"
+    t.string   "ability_increase"
   end
 
   create_table "character_skills", :force => true do |t|
