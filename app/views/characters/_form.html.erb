@@ -32,31 +32,34 @@
     <%= f.text_area :description %>
   </div>
 
-  <div class="field">
-    <%= f.label :starting_str %><br />
-    <%= f.text_field :starting_str %>
-  </div>
-  <div class="field">
-    <%= f.label :starting_dex %><br />
-    <%= f.text_field :starting_dex %>
-  </div>
-  <div class="field">
-    <%= f.label :starting_con %><br />
-    <%= f.text_field :starting_con %>
-  </div>
-  <div class="field">
-    <%= f.label :starting_int %><br />
-    <%= f.text_field :starting_int %>
-  </div>
-  <div class="field">
-    <%= f.label :starting_wis %><br />
-    <%= f.text_field :starting_wis %>
-  </div>
-  <div class="field">
-    <%= f.label :starting_cha %><br />
-    <%= f.text_field :starting_cha %>
-  </div>
+    <%= f.label :starting_str, 'STR' %>
+    <%= f.text_field :starting_str, :size => 3, :max_length => 2 %>
 
+    <%= f.label :starting_dex, 'DEX' %>
+    <%= f.text_field :starting_dex, :size => 3, :max_length => 2 %>
+
+    <%= f.label :starting_con, 'CON' %>
+    <%= f.text_field :starting_con, :size => 3, :max_length => 2 %>
+
+    <%= f.label :starting_int, 'INT' %>
+    <%= f.text_field :starting_int, :size => 3, :max_length => 2 %>
+
+    <%= f.label :starting_wis, 'WIS' %>
+    <%= f.text_field :starting_wis, :size => 3, :max_length => 2 %>
+
+    <%= f.label :starting_cha, 'CHA' %>
+    <%= f.text_field :starting_cha, :size => 3, :max_length => 2%>
+
+  <table>
+  <%= f.fields_for(:character_levels) do |builder| %>
+  <%= render 'level_fields', :f => builder, :c => @character %>
+  <% end %>
+  </table>
+
+  <p>
+  <b>Unspent Skill Points:</b>
+  <%= @character.skill_points_available %>
+  </p>
   <table>
   <%= f.fields_for(:character_skills) do |builder| %>
   <%= render 'skill_fields', :f => builder, :c => @character %>

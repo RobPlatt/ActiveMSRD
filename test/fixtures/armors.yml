@@ -1,0 +1,27 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  armor_name: MyString
+  armor_type: MyString
+  prof_bonus: 1
+  nonprof_bonus: 1
+  max_dex_bonus: 1
+  armor_penalty: 1
+  arcane_spell_failure: 1
+  speed: 1
+  weight: 1
+  purchase_dc: 1
+  restriction: MyString
+
+two:
+  armor_name: MyString
+  armor_type: MyString
+  prof_bonus: 1
+  nonprof_bonus: 1
+  max_dex_bonus: 1
+  armor_penalty: 1
+  arcane_spell_failure: 1
+  speed: 1
+  weight: 1
+  purchase_dc: 1
+  restriction: MyString

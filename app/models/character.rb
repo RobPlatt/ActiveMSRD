@@ -19,6 +19,10 @@ class Character < ActiveRecord::Base
   has_many :character_skills, :dependent => :destroy
   has_many :skills, :through => :character_skills
   accepts_nested_attributes_for :character_skills, :reject_if => proc { |attributes| not attributes['ranks'].blank? and attributes['ranks'].to_i < 0 }
+  accepts_nested_attributes_for :character_levels, :reject_if => proc { |attributes| attributes['class_level_id'].blank? }
+  after_save :roll_hit_dice
+  
+  include Dice
   
   def <=>(other)
     if self.name < other.name
@@ -274,17 +278,45 @@ class Character < ActiveRecord::Base
     return bonus
   end
   
-  def max_skill_rank
+  def is_class_skill(skill_id)
+    class_levels.each do |level|
+      if ClassSkill.find_by_modern_class_id_and_skill_id(level.modern_class_id, skill_id)
+        return true
+      end
+    end
+    return false
+  end
+  
+  def max_class_skill_rank
     return character_levels.count + 3
   end
   
-  def max_ranks(skill_id)
+  def max_cross_class_skill_rank
+    return max_class_skill_rank / 2
+  end
+  
+  def level_choices
+    return ClassLevel.all
+  end
+  
+ def skill_points_available
+    total = 0
     class_levels.each do |level|
-      if ClassSkill.find_by_modern_class_id_and_skill_id(level.modern_class_id, skill_id)
-        return max_skill_rank
+      if (level.modern_class)
+        points = level.modern_class.skill_points + Character.score_to_mod(starting_int)
+        if (level.level == 1)
+          total = total + points*4
+        else
+          total = total + points
+        end
       end
     end
-    return max_skill_rank / 2
+    character_skills.each do |skill|
+      if (skill.ranks)
+        total = total - skill.ranks
+      end
+    end
+    return total
   end
   
 end

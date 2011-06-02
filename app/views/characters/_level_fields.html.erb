@@ -1,0 +1,7 @@
+  <div class="field">
+    <tr>
+    <td><%= f.label :level, f.object.level %></td>
+     <%= f.hidden_field :level %>
+    <td><%= f.collection_select(:class_level_id, c.level_choices, :id, :name, :prompt => true) %>
+    </tr>
+  </div>

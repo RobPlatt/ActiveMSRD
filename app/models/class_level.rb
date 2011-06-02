@@ -2,6 +2,10 @@ class ClassLevel < ActiveRecord::Base
   belongs_to :modern_class
   has_many :character_levels
   
+  def name
+    return "#{modern_class.class_name} #{level}"
+  end
+  
   def <=>(other)
     if self.level < other.level
       return -1

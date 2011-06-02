@@ -30,6 +30,9 @@ class CharactersController < ApplicationController
     Skill.all.each do |skill|
       @character.character_skills.build(:character_id => @character.id, :skill_id => skill.id)
     end
+    for x in 1..20
+      @character.character_levels.build(:level => x)
+    end
     
     respond_to do |format|
       format.html # new.html.erb
@@ -47,6 +50,13 @@ class CharactersController < ApplicationController
         @character.character_skills.build(:character_id => @character.id, :skill_id => skill.id)
       end
     end
+    
+    for x in 1..20
+      if (not @character.character_levels.find_by_level(x))
+        @character.character_levels.build(:level => x)
+      end
+    end
+    
   end
 
   # POST /characters
