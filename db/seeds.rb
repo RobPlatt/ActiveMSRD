@@ -49,7 +49,7 @@ Skill.seed( [
   {:skill_name => 'Knowledge (Streetwise)', :key_ability => 'int', :trained_only => true },
   {:skill_name => 'Knowledge (Tactics)', :key_ability => 'int', :trained_only => true },
   {:skill_name => 'Knowledge (Technology)', :key_ability => 'int', :trained_only => true },
-  {:skill_name => 'Knowledge (Theology)', :key_ability => 'int', :trained_only => true },
+  {:skill_name => 'Knowledge (Theology and Philosophy)', :key_ability => 'int', :trained_only => true },
   {:skill_name => 'Listen', :key_ability => 'wis' },
   {:skill_name => 'Move Silently', :key_ability => 'dex', :armor_penalty => 'true' },
   {:skill_name => 'Navigate', :key_ability => 'int' },
@@ -99,13 +99,6 @@ strong_hero.update_attributes(
     :action_points => 5,
     :hit_die => 8
   })
-
-ClassSkill.seed(strong_hero,
-[ 'Climb', 'Craft (structural)', 'Handle Animal', 'Jump',
-  'Knowledge (Current events)', 'Knowledge (Popular Culture',
-  'Knowledge (Streetwise)', 'Knowledge (Tactics)',
-  'Profession', 'Read/Write Language', 'Repair', 'Speak Language', 'Swim' ])
-
 ClassLevel.seed(strong_hero,
   [
   { },
@@ -119,6 +112,9 @@ ClassLevel.seed(strong_hero,
   { },
   { }
   ])
+ClassSkill.seed(strong_hero,
+"Climb (Str), Craft (structural) (Int), Handle Animal (Cha), Jump (Str), Knowledge (current events, popular culture, streetwise, tactics) (Int), Profession (Wis), Read/Write Language (none), Repair (Int), Speak Language (none), and Swim (Str)"
+)
 
 fast_hero = ModernClass.find_or_create_by_class_name(:class_name => 'Fast Hero')
 fast_hero.update_attributes(
@@ -146,14 +142,8 @@ ClassLevel.seed(fast_hero,
   { }
   ])
 ClassSkill.seed(fast_hero,
-[
-  "Balance", "Craft (mechanical)", "Drive", "Escape Artist",
-  "Hide", "Knowledge (current events)",
-  "Knowledge (popular culture)",
-  "Knowledge (streetwise)", "Move Silently", "Pilot",
-  "Profession", "Read/Write Language", "Ride",
-  "Sleight of Hand", "Speak Language", "Tumble"
-])
+"Balance (Dex), Craft (mechanical) (Int), Drive (Dex), Escape Artist (Dex), Hide (Dex), Knowledge (current events, popular culture, streetwise) (Int), Move Silently (Dex), Pilot (Dex), Profession (Wis), Read/Write Language (none), Ride (Dex), Sleight of Hand (Dex), Speak Language (none), and Tumble (Dex)."
+)
 
 tough_hero = ModernClass.find_or_create_by_class_name(:class_name => 'Tough Hero')
 tough_hero.update_attributes(
@@ -181,16 +171,8 @@ ClassLevel.seed(tough_hero,
   { }
   ])
 ClassSkill.seed(tough_hero,
-[
-  "Climb", "Concentration",
-  "Craft", "Drive", "Intimidate",
-  "Knowledge (current events)",
-  "Knowledge (popular culture)",
-  "Knowledge (streetwise)",
-  "Profession", "Read/Write Language", "Ride",
-  "Speak Language", "Spot",
-  "Survival"
-  ])
+"Climb (Str), Concentration (Con), Craft (mechanical, structural) (Int), Drive (Dex), Intimidate (Cha), Knowledge (current events, popular culture, streetwise) (Int), Profession (Wis), Read/Write Language (none), Ride (Dex), Speak Language (none), Spot (Wis), and Survival (Wis)"
+)
   
 smart_hero = ModernClass.find_or_create_by_class_name(:class_name => 'Smart Hero')
 smart_hero.update_attributes(
@@ -218,18 +200,8 @@ ClassLevel.seed(smart_hero,
   { }
   ])
 ClassSkill.seed(smart_hero,
-w[
-  "Computer Use",
-  "Craft (chemical)", "Craft (electronic)", (mechanical), (pharmaceutical),
-  (structural), (visual art), (writing),
-  "Decipher Script", "Demolitions", "Disable Device", "Forgery",
-  "Investigate, "Knowledge (arcane lore), "Knowledge (art),
-  (behavioral sciences), (business), (civics), (current events),
-  (earth) (life sciences), (history), (physical sciences),
-  (popular culture), (streetwise), (tactics), (technology),
-  (theology), (philosophy) (Int), Navigate (Int), Profession (Wis), Read/Write Language (none), Repair (Int),
-  Research (Int), Search (Int), and Speak Language (none).
-])
+"Computer Use (Int), Craft (chemical, electronic, mechanical, pharmaceutical, structural, visual art, writing) (Int), Decipher Script (Int), Demolitions (Int), Disable Device (Int), Forgery (Int), Investigate (Int), Knowledge (arcane lore, art, behavioral sciences, business, civics, current events, earth and life sciences, history, physical sciences, popular culture, streetwise, tactics, technology, theology and philosophy) (Int), Navigate (Int), Profession (Wis), Read/Write Language (none), Repair (Int), Research (Int), Search (Int), and Speak Language (none)."
+)
 
 dedicated_hero = ModernClass.find_or_create_by_class_name(:class_name => 'Dedicated Hero')
 dedicated_hero.update_attributes( 
@@ -258,8 +230,7 @@ ClassLevel.seed(dedicated_hero,
   { }
   ])
 ClassSkill.seed(dedicated_hero,
-[
-])
+"Craft (pharmaceutical, visual art, writing) (Int), Gamble (Wis), Investigate (Int), Knowledge (arcane lore, art, behavioral sciences, business, civics, current events, earth and life sciences, history, physical sciences, popular culture, streetwise, tactics, technology, theology and philosophy) (Int), Listen (Wis), Profession (Wis), Read/Write Language (none), Sense Motive (Wis), Speak Language (none), Spot (Wis), Survival (Wis), and Treat Injury (Wis")
 
 charismatic_hero = ModernClass.find_or_create_by_class_name(:class_name => 'Charismatic Hero')
 charismatic_hero.update_attributes(
@@ -288,8 +259,7 @@ ClassLevel.seed(charismatic_hero,
   { }
   ])
 ClassSkill.seed(charismatic_hero,
-[  
-])
+"Bluff (Cha), Craft (visual art, writing) (Int), Diplomacy (Cha), Disguise (Cha), Gather Information (Cha), Handle Animal (Cha), Intimidate (Cha), Knowledge (arcane lore, art, behavioral sciences, business, civics, current events, popular culture, streetwise, theology and philosophy) (Int), Perform (act, dance, keyboards, percussion instruments, sing, stand-up, stringed instruments, wind instruments) (Cha), Profession (Wis), Read/Write Language (none), and Speak Language (none")
 puts "Seeding test characters..."
 
 tony_test = Character.find_or_create_by_name(:name => 'Tony Test')
