@@ -2,7 +2,7 @@ class ClassSkill < ActiveRecord::Base
   belongs_to :modern_class
   belongs_to :skill
   
-  def self.seed(modern_class, skill_list)
+  def self.seed_from_list(modern_class, skill_list)
 
     skill_list.each do |skill_name|
       Skill.all.each do |skill|
@@ -11,6 +11,10 @@ class ClassSkill < ActiveRecord::Base
              :modern_class_id => modern_class.id, :skill_id => skill.id)
         end
       end
+    end
+    
+    def seed(modern_class, skill_text)
+      seed_from_list(modern_class, skill_text)
     end
   end
 end

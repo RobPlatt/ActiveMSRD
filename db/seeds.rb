@@ -145,7 +145,16 @@ ClassLevel.seed(fast_hero,
   { },
   { }
   ])
-  
+ClassSkill.seed(fast_hero,
+[
+  "Balance", "Craft (mechanical)", "Drive", "Escape Artist",
+  "Hide", "Knowledge (current events)",
+  "Knowledge (popular culture)",
+  "Knowledge (streetwise)", "Move Silently", "Pilot",
+  "Profession", "Read/Write Language", "Ride",
+  "Sleight of Hand", "Speak Language", "Tumble"
+])
+
 tough_hero = ModernClass.find_or_create_by_class_name(:class_name => 'Tough Hero')
 tough_hero.update_attributes(
   {
@@ -171,7 +180,18 @@ ClassLevel.seed(tough_hero,
   { },
   { }
   ])
- 
+ClassSkill.seed(tough_hero,
+[
+  "Climb", "Concentration",
+  "Craft", "Drive", "Intimidate",
+  "Knowledge (current events)",
+  "Knowledge (popular culture)",
+  "Knowledge (streetwise)",
+  "Profession", "Read/Write Language", "Ride",
+  "Speak Language", "Spot",
+  "Survival"
+  ])
+  
 smart_hero = ModernClass.find_or_create_by_class_name(:class_name => 'Smart Hero')
 smart_hero.update_attributes(
   {
@@ -197,7 +217,20 @@ ClassLevel.seed(smart_hero,
   { },
   { }
   ])
-  
+ClassSkill.seed(smart_hero,
+w[
+  "Computer Use",
+  "Craft (chemical)", "Craft (electronic)", (mechanical), (pharmaceutical),
+  (structural), (visual art), (writing),
+  "Decipher Script", "Demolitions", "Disable Device", "Forgery",
+  "Investigate, "Knowledge (arcane lore), "Knowledge (art),
+  (behavioral sciences), (business), (civics), (current events),
+  (earth) (life sciences), (history), (physical sciences),
+  (popular culture), (streetwise), (tactics), (technology),
+  (theology), (philosophy) (Int), Navigate (Int), Profession (Wis), Read/Write Language (none), Repair (Int),
+  Research (Int), Search (Int), and Speak Language (none).
+])
+
 dedicated_hero = ModernClass.find_or_create_by_class_name(:class_name => 'Dedicated Hero')
 dedicated_hero.update_attributes( 
   {
@@ -224,6 +257,9 @@ ClassLevel.seed(dedicated_hero,
   { },
   { }
   ])
+ClassSkill.seed(dedicated_hero,
+[
+])
 
 charismatic_hero = ModernClass.find_or_create_by_class_name(:class_name => 'Charismatic Hero')
 charismatic_hero.update_attributes(
@@ -251,8 +287,9 @@ ClassLevel.seed(charismatic_hero,
   { },
   { }
   ])
-  
-
+ClassSkill.seed(charismatic_hero,
+[  
+])
 puts "Seeding test characters..."
 
 tony_test = Character.find_or_create_by_name(:name => 'Tony Test')
