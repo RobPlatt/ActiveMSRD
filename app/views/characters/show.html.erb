@@ -11,7 +11,7 @@
 <%= raw(@description) %>
 </p>
 <p><b>Reputation: </b><%= "%+d" % @character.reputation %></p>
-<p><b>Speed: </b><%= @character.speed %></p>
+<p><b>Speed: </b><%= @character.speed %> ft</p>
 <p><b>Initiative: </b><%= "%+d" % @character.initiative %></p>
 <p><b>Hit Points: </b><%= @character.hit_points %></p>
 <table>
@@ -41,7 +41,7 @@
 </tr>
 </table>
 <% if @armor %>
-<p><b>Armor: </b><%= @armor.armor_name %>
+<p><b><li><%= link_to "Armor", armors_path %>:</b> <%= @armor.armor_name %>
 <% end %>
 <p><b>Defence: </b><%= "%+d" % @character.defence %>,
 <b>Touch: </b><%= "%+d" % @character.touch_defence %>

@@ -101,7 +101,16 @@ class Character < ActiveRecord::Base
   end
   
   def speed
-    return race.base_speed
+    base_speed = race.base_speed
+    if armor
+      if (race.base_speed == 30)
+        return armor.speed
+      else
+        return (base_speed.to_f * (armor.speed.to_f / 30.0) / 5.0).round * 5
+      end
+    else
+      return base_speed
+    end
   end
   
   def size
@@ -166,10 +175,6 @@ class Character < ActiveRecord::Base
   
   def ability_mod(ability)
     return public_send(ability + "_mod")
-  end
-  
-  def armor_penalty
-    return 0
   end
   
   def base_bonus(target)
@@ -282,7 +287,7 @@ class Character < ActiveRecord::Base
   
   def skill_bonus(skill_id)
     skill = Skill.find(skill_id)
-    bonus = ability_mod(skill.key_ability) + armor_penalty
+    bonus = ability_mod(skill.key_ability)
     
     # add on ranks in skill
     character_skill = character_skills.find_by_skill_id(skill_id)
@@ -290,6 +295,10 @@ class Character < ActiveRecord::Base
       bonus = bonus + character_skill.ranks
     elsif (skill.trained_only)
       bonus = nil # skill is trained only and character has no ranks
+    end
+    
+    if bonus and skill.armor_penalty and armor
+      bonus = bonus - armor.armor_penalty
     end
     
     return bonus
