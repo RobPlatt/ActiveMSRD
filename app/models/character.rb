@@ -232,6 +232,24 @@ class Character < ActiveRecord::Base
     return bab + dex_mod + race.attack_size_mod
   end
   
+  def attack_bonus_with(character_weapon)
+    if character_weapon.weapon.is_ranged
+      attack_bonus = ranged_attack
+    else
+      attack_bonus = melee_attack
+    end
+    
+    if character_weapon.mastercraft
+      attack_bonus = attack_bonus + 1
+    end
+    
+    return attack_bonus
+  end
+  
+  def damage_with(character_weapon)
+    return character_weapon.weapon.damage
+  end
+  
   def base_fort
     return base_bonus('base_fort')
   end

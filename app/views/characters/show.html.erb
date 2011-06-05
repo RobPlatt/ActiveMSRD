@@ -63,10 +63,15 @@
 <table>
 <tr>
 <th>Weapon</th>
+<th>Attack Bonus</th>
+<th>Damage</th>
 </tr>
-<% @character.weapons.each do |weapon| %>
+<% @character.character_weapons.each do |character_weapon| %>
 <tr>
-  <td><%= link_to weapon.weapon_name, weapon_path(weapon) %></td>
+  <% @weapon = character_weapon.weapon %>
+  <td><%= link_to @weapon.weapon_name, weapon_path(@weapon) %></td>
+  <td><%= @character.attack_bonus_with(character_weapon) %></td>
+  <td><%= @character.damage_with(character_weapon) %></td>
 </tr>
 <% end %>
 </table>

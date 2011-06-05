@@ -3,6 +3,10 @@ require 'csv'
 class Weapon < ActiveRecord::Base
   has_many :character_weapons, :dependent => :restrict
   
+  def is_ranged
+    return magazine != nil
+  end
+  
   def self.seed_ranged(filename)
    CSV.foreach filename do |row|
       Weapon.find_or_create_by_weapon_name(
