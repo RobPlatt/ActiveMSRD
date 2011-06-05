@@ -60,8 +60,16 @@
 <b>Bull Rush: </b><%= "%+d" % @character.bull_rush %>,
 <b>Melee Attack: </b><%= "%+d" % @character.melee_attack %>,
 <b>Ranged Attack: </b><%= "%+d" % @character.ranged_attack %></p>
-
-Trainer: <%= @character.character_skills.count %>
+<table>
+<tr>
+<th>Weapon</th>
+</tr>
+<% @character.weapons.each do |weapon| %>
+<tr>
+  <td><%= link_to weapon.weapon_name, weapon_path(weapon) %></td>
+</tr>
+<% end %>
+</table>
 <table>
 <tr>
 <th>Skill Name</th>

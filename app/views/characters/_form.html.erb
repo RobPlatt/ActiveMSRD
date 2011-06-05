@@ -1,4 +1,6 @@
-<%= form_for(@character) do |f| %>
+<%= javascript_include_tag :defaults, "nested_form" %>
+
+<%= nested_form_for @character do |f| %>
   <% if @character.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@character.errors.count, "error") %> prohibited this character from being saved:</h2>
@@ -10,6 +12,10 @@
       </ul>
     </div>
   <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
 
   <div class="field">
     <%= f.label :name %><br />
@@ -61,6 +67,13 @@
     <%= collection_select(:character, :armor_id, Armor.all, :id, :armor_name, :prompt => true)
     %>
   </div>
+
+  <p>
+  <%= f.fields_for(:character_weapons) do |builder| %>
+  <%= render 'character_weapon_fields', :f => builder, :c => @character %>
+  <% end %>
+  </p>
+  <p><%= f.link_to_add "add weapon", :character_weapons %></p>
 
   <p>
   <b>Unspent Skill Points:</b>

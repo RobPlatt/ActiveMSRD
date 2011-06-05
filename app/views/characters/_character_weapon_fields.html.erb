@@ -1,0 +1,6 @@
+  <div class="field">
+    <%= f.hidden_field :character_id %>
+    <%= f.label :weapon, "Weapon" %>
+    <%= f.collection_select(:weapon_id, Weapon.all, :id, :weapon_name, :prompt => true) %>
+    <%= f.link_to_remove "remove" %>
+  </div>

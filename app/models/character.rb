@@ -18,10 +18,13 @@ class Character < ActiveRecord::Base
   belongs_to :race
   has_many :character_skills, :dependent => :destroy
   has_many :skills, :through => :character_skills
+  belongs_to :armor
+  has_many :character_weapons, :dependent => :destroy
+  has_many :weapons, :through => :character_weapons
+  after_save :roll_hit_dice
+  accepts_nested_attributes_for :character_weapons, :allow_destroy => true
   accepts_nested_attributes_for :character_skills, :reject_if => proc { |attributes| not attributes['ranks'].blank? and attributes['ranks'].to_i < 0 }
   accepts_nested_attributes_for :character_levels, :reject_if => proc { |attributes| attributes['class_level_id'].blank? }
-  belongs_to :armor
-  after_save :roll_hit_dice
   
   include Dice
   

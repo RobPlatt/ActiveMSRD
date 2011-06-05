@@ -1,6 +1,6 @@
 class ClassLevel < ActiveRecord::Base
   belongs_to :modern_class
-  has_many :character_levels
+  has_many :character_levels, :dependent => :restrict
   
   def name
     return "#{modern_class.class_name} #{level}"

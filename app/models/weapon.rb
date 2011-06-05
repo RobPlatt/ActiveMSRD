@@ -1,6 +1,7 @@
 require 'csv'
 
 class Weapon < ActiveRecord::Base
+  has_many :character_weapons, :dependent => :restrict
   
   def self.seed_ranged(filename)
    CSV.foreach filename do |row|
