@@ -1,0 +1,26 @@
+<% @title=@weapon.weapon_name %>
+<p>
+<%= link_to 'Home', :root %> |
+<%= link_to 'All Weapons', weapons_path %>
+<h1><%= @weapon.weapon_name %></h1>
+<p><b>Type:</b> <%= @weapon.weapon_type %></p>
+<p><b>Damage:</b> <%= @weapon.damage %></p>
+<p><b>Critical:</b> <%= @weapon.critical %></p>
+<p><b>Damage Type:</b> <%= @weapon.damage_type %></p>
+<% if @weapon.range_increment %>
+<p><b>Range Increment:</b> <%= @weapon.range_increment %> ft</p>
+<% end %>
+<% if @weapon.burst_radius %>
+<p><b>Burst Radius:</b> <%= @weapon.burst_radius %> ft</p>
+<% end %>
+<% if @weapon.rate_of_fire %>
+<%= raw(rate_of_fire_descriptive(@weapon.rate_of_fire)) %></p>
+<% end %>
+<% if @weapon.magazine %>
+<p><b>Magazine:</b> <%= @weapon.magazine %></p>
+<% end %>
+<p><b>Size:</b> <%= @weapon.size %></p>
+<p><b>Weight:</b> <%= @weapon.weight %></p>
+<p><b>Purchase DC:</b> <%= @weapon.purchase_dc %></p>
+<p><b>Restriction:</b> <%= @weapon.restriction %></p>
+<p><b>Setting:</b> <%= @weapon.setting %></p>

@@ -1,0 +1,33 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  weapon_name: MyString
+  damage: MyString
+  critical: MyString
+  damage_type: MyString
+  range_increment: 1
+  rate_of_fire: MyString
+  magazine: MyString
+  size: MyString
+  weight: 1
+  purchase_dc: 1
+  restriction: MyString
+  weapon_type: MyString
+  burst_radius: MyString
+  setting: MyString
+
+two:
+  weapon_name: MyString
+  damage: MyString
+  critical: MyString
+  damage_type: MyString
+  range_increment: 1
+  rate_of_fire: MyString
+  magazine: MyString
+  size: MyString
+  weight: 1
+  purchase_dc: 1
+  restriction: MyString
+  weapon_type: MyString
+  burst_radius: MyString
+  setting: MyString

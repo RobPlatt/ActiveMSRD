@@ -1,0 +1,46 @@
+Beretta 92F (9mm autoloader),2d6,20,Ballistic,40 ft.,S,15 box,Small,3 lb.,16,Lic (+1),handgun,core
+Beretta 93R (9mm machine pistol),2d6,20,Ballistic,30 ft.,"S,A",20 box,Med,3 lb.,18,Res (+2),handgun,core
+Colt Double Eagle (10mm autoloader),2d6,20,Ballistic,30 ft.,S,9 box,Small,3 lb.,16,Lic (+1),handgun,core
+Colt M1911 (.45 autoloader),2d6,20,Ballistic,30 ft.,S,7 box,Small,3 lb.,15,Lic (+1),handgun,core
+Colt Python1 (.357 revolver),2d6,20,Ballistic,40 ft.,S,6 cyl.,Med,3 lb.,5,Lic (+1),handgun,core
+Derringer (.45),2d6,20,Ballistic,10 ft.,Single,2 int.,Tiny,1 lb.,14,Lic (+1),handgun,core
+Desert Eagle (.50AE autoloader),2d8,20,Ballistic,40 ft.,S,8 box,Med,4 lb.,18,Lic (+1),handgun,core
+Glock 171 (9mm autoloader),2d6,20,Ballistic,30 ft.,S,17 box,Small,2 lb.,18,Lic (+1),handgun,core
+Glock 201 (10mm autoloader),2d6,20,Ballistic,40 ft.,S,15 box,Small,3 lb.,18,Lic (+1),handgun,core
+MAC Ingram M10 (.45 machine pistol),2d6,20,Ballistic,40 ft.,"S, A",30 box,Med,6 lb.,15,Res (+2),handgun,core
+Pathfinder (.22 revolver),2d4,20,Ballistic,20 ft.,S,6 cyl.,Tiny,1 lb.,14,Lic (+1),handgun,core
+Ruger Service-Six (.38S revolver),2d6,20,Ballistic,30 ft.,S,6 cyl.,Small,2 lb.,14,Lic (+1),handgun,core
+S&W M29 (.44 magnum revolver),2d8,20,Ballistic,30 ft.,S,6 cyl.,Med,3 lb.,15,Lic (+1),handgun,core
+SITES M9 (9mm autoloader),2d6,20,Ballistic,30 ft.,S,8 box,Tiny,2 lb.,15,Lic (+1),handgun,core
+Skorpion (.32 machine pistol),2d4,20,Ballistic,40 ft.,"S, A",20 box,Med,4 lb.,17,Res (+2),handgun,core
+TEC-9 (9mm machine pistol),2d6,20,Ballistic,40 ft.,S or A,32 box,Med,4 lb.,14,Res (+2),handgun,core
+Walther PPK (.32 autoloader),2d4,20,Ballistic,30 ft.,S,7 box,Small,1 lb.,15,Lic (+1),handgun,core
+AKM/AK-47 (7.62mmR assault rifle),2d8,20,Ballistic,70 ft.,"S, A",30 box,Large,10 lb.,15,Res (+2),longarm,core
+Barrett Light Fifty (.50 sniper rifle),2d12,20,Ballistic,120 ft.,S,11 box,Huge,35 lb.,22,Lic (+1),longarm,core
+Benelli 121 M1 (12-gague shotgun),2d8,20,Ballistic,40 ft.,S,7 int,Large,8 lb.,17,Lic (+1),longarm,core
+Beretta M3P (12-gauge shotgun),2d8,20,Ballistic,30 ft.,S,5 box,Large,9 lb.,16,Lic (+1),longarm,core
+Browning BPS (10-gauge shotgun),2d10,20,Ballistic,30 ft.,Single,5 int.,Large,11 lb.,16,Lic (+1),longarm,core
+HK G3 (7.62mm assault rifle),2d10,20,Ballistic,90 ft.,"S, A",20 box,Large,11 lb.,19,Res (+2),longarm,core
+HK MP51 (9mm submachine gun),2d6,20,Ballistic,50 ft.,"S, A",30 box,Large,7 lb.,20,Res (+2),longarm,core
+HK MP5K (9mm submachine gun),2d6,20,Ballistic,40 ft.,"S, A",15 box,Med,5 lb.,19,Res (+2),longarm,core
+HK PSG11 (7.62mm sniper rifle),2d10,20,Ballistic,90 ft.,S,5 box,Large,16 lb.,22,Lic (+1),longarm,core
+M16A2 (5.56mm assault rifle),2d8,20,Ballistic,80 ft.,"S, A",30 box,Large,8 lb.,16,Res (+2),longarm,core
+M4 Carbine (5.56mm assault rifle),2d8,20,Ballistic,60 ft.,"S, A",30 box,Large,7 lb.,16,Res (+2),longarm,core
+M-60 (medium machine gun),2d10,20,Ballistic,100 ft.,A,Linked,Huge,22 lb.,21,Mil (+3),longarm,core
+Mossberg (12-gauge shotgun),2d8,20,Ballistic,30 ft.,Single,6 int.,Large,7 lb.,15,Lic (+1),longarm,core
+Remington 700 (7.62mm hunting rifle),2d10,20,Ballistic,80 ft.,Single,5 int.,Large,8 lb.,17,Lic (+1),longarm,core
+Sawed-off shotgun (12-ga shotgun),2d8,20,Ballistic,10 ft.,S,2 int.,Med,4 lb.,15,Illegal (+4),longarm,core
+Steyr AUG (5.56mm assault rifle),2d8,20,Ballistic,80 ft.,"S, A",30 box,Large,9 lb.,19,Res (+2),longarm,core
+Uzi (9mm submachine gun),2d6,20,Ballistic,40 ft.,"S, A",20 box,Large,8 lb.,18,Res (+2),longarm,core
+Winchester 94 (.444 hunting rifle),2d10,20,Ballistic,90 ft.,S,6 int.,Large,7 lb.,15,Lic (+1),longarm,core
+M2HB (heavy machine gun),2d12,20,Ballistic,110 ft.,A,Linked,Huge,75 lb.,22,Mil (+3),heavy,core
+M72A3 LAW (rocket launcher),10d6,,,150 ft.,1,1 int.,Large,5 lb.,15,Mil (+3),heavy,core
+M79 (grenade launcher),varies,,,70 ft.,1,1 int.,Large,7 lb.,14,Mil (+3),heavy,core
+Compound bow,1d8,20,Piercing,40 ft.,1,,Large,3 lb.,10,,archaic,core
+Crossbow,1d10,19-20,Piercing,40 ft.,1,1 int.,Med,7 lb.,9,,simple,core
+Flamethrower,3d6,,Fire,,1,10 int.,Large,50 lb.,17,Mil (+3),,core
+Javelin,1d6,20,Piercing,30 ft.,1,,Med,2 lb.,4,,simple,core
+Pepper spray,special,,Special2,5 ft.,1,1 int.,Tiny,0.5 lb.,5,,simple,core
+Shuriken,1,20,Piercing,10 ft.,1,,Tiny,0.5 lb.,3,,archaic,core
+Taser,1d4,,Electricity,5 ft.,1,1 int.,Small,2 lb.,7,,simple,core
+Whip,1d2,20,Slashing,15 ft.3,1,,Small,2 lb.,4,,simple,core

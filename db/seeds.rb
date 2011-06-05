@@ -81,6 +81,8 @@ Skill.seed( [
 puts "Equipment..."
 puts "  Armor..."
 Armor.seed('db/armor.csv')
+puts "  Ranged weapons..."
+Weapon.seed_ranged('db/ranged_weapons.csv')
 
 puts "Seeding MSRD races..."
 

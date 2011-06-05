@@ -1,2 +1,18 @@
-<h1>Armors#show</h1>
-<p>Find me in app/views/armors/show.html.erb</p>
+<% @title=@armor.armor_name %>
+<p>
+<%= link_to 'Home', :root %> |
+<%= link_to 'All Armors', armors_path %>
+<h1><%= @armor.armor_name %></h1>
+    <p><b>Type:</b> <%= @armor.armor_type %></p>
+    <p><b>Style:</b> <%= @armor.style %></p>
+    <p><b>Proficient Bonus:</b> <%= "%+d" % @armor.prof_bonus %></p>
+    <p><b>Non-proficient Bonus:</b> <%= "%+d" % @armor.nonprof_bonus %></p>
+    <p><b>Max Dex to AC:</b> <%= "%+d" % @armor.max_dex_bonus %></p>
+    <p><b>Armor Penalty:</b> <%= -@armor.armor_penalty %></p>
+    <p><b>Arcane Spell Failure:</b> <%= @armor.arcane_spell_failure %>%</p>
+    <p><b>Speed (30ft):</b> <%= @armor.speed %></p>
+    <p><b>Weight:</b> <%= @armor.weight %> lb</p>
+    <p><b>Purchase DC:</b> <%= @armor.purchase_dc %></p>
+    <p><b>Restriction:</b> <%= @armor.restriction %></p>
+    <p><b>Setting:</b> <%= @armor.setting %></p>
+</p>

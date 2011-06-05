@@ -41,7 +41,7 @@
 </tr>
 </table>
 <% if @armor %>
-<p><b><li><%= link_to "Armor", armors_path %>:</b> <%= @armor.armor_name %>
+<p><b><li><%= link_to "Armor", armors_path %>:</b> <%= link_to @armor.armor_name, armor_path(@armor) %>
 <% end %>
 <p><b>Defence: </b><%= "%+d" % @character.defence %>,
 <b>Touch: </b><%= "%+d" % @character.touch_defence %>

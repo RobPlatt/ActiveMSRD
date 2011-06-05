@@ -26,13 +26,13 @@ for public use under the terms of the
  
 <% @armors.each do |armor| %>
   <tr>
-    <td><%= armor.armor_name %></td>
+    <td><%= link_to armor.armor_name, armor_path(armor) %></td>
     <td><%= armor.armor_type %></td>
     <td><%= armor.style %></td>
     <td><%= "%+d" % armor.prof_bonus %></td>
     <td><%= "%+d" % armor.nonprof_bonus %></td>
     <td><%= "%+d" % armor.max_dex_bonus %></td>
-    <td>-<%= armor.armor_penalty %></td>
+    <td><%= -armor.armor_penalty %></td>
     <td><%= armor.arcane_spell_failure %>%</td>
     <td><%= armor.speed %></td>
     <td><%= armor.weight %> lb</td>

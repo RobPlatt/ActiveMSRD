@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110605094838) do
+ActiveRecord::Schema.define(:version => 20110605113459) do
 
   create_table "armors", :force => true do |t|
     t.string   "armor_name"
@@ -125,6 +125,25 @@ ActiveRecord::Schema.define(:version => 20110605094838) do
     t.boolean  "trained_only",  :default => false
     t.boolean  "armor_penalty", :default => false
     t.string   "key_ability"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "weapons", :force => true do |t|
+    t.string   "weapon_name"
+    t.string   "damage"
+    t.string   "critical"
+    t.string   "damage_type"
+    t.integer  "range_increment"
+    t.string   "rate_of_fire"
+    t.string   "magazine"
+    t.string   "size"
+    t.integer  "weight"
+    t.integer  "purchase_dc"
+    t.string   "restriction"
+    t.string   "weapon_type"
+    t.string   "burst_radius"
+    t.string   "setting"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

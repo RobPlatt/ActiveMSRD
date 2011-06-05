@@ -1,5 +1,9 @@
 ActiveMSRD::Application.routes.draw do
 
+  get "weapons/index"
+
+  get "weapons/show"
+
   get "armors/index"
 
   get "armors/show"
@@ -29,6 +33,7 @@ ActiveMSRD::Application.routes.draw do
   root :to => "home#index"
 
   resources :armors
+  resources :weapons
   resources :pages
   resources :races
   resources :skills

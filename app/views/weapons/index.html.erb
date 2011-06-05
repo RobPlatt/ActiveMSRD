@@ -1,0 +1,46 @@
+<% @title='Weapons' %>
+This material is Open Game Content, and is licensed
+for public use under the terms of the
+<a href="license/ogl">Open Game License v1.0a</a>.
+<p>
+<%= link_to 'Back', :back %>
+</p>
+<h1>Weapons</h1>
+
+<table>
+  <tr>
+    <th>Weapon</th>
+    <th>Type</th>
+    <th>Damage</th>
+    <th>Critical</th>
+    <th>Damage Type</th>
+    <th>Range Inc</th>
+    <th>Burst</th>
+    <th>Rate of Fire</th>
+    <th>Magazine</th>
+    <th>Size</th>
+    <th>Weight</th>
+    <th>Purchase DC</th>
+    <th>Restriction</th>
+    <th>Setting</th>
+  </tr>
+ 
+<% @weapons.each do |weapon| %>
+  <tr>
+    <td><%= link_to weapon.weapon_name, weapon_path(weapon) %></td>
+    <td><%= weapon.weapon_type %></td>
+    <td><%= weapon.damage %></td>
+    <td><%= weapon.critical %></td>
+    <td><%= weapon.damage_type %></td>
+    <td><%= weapon.range_increment %></td>
+    <td><%= weapon.burst_radius %></td>
+    <td><%= weapon.rate_of_fire %></td>
+    <td><%= weapon.magazine %></td>
+    <td><%= weapon.size %></td>
+    <td><%= weapon.weight %> lb</td>
+    <td><%= weapon.purchase_dc %></td>
+    <td><%= weapon.restriction %></td>
+    <td><%= weapon.setting %></td>
+  </tr>
+<% end %>
+</table>
