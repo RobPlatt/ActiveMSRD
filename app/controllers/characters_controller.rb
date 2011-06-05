@@ -15,7 +15,10 @@ class CharactersController < ApplicationController
     else
       @description = ""
     end
-
+    if (@character.armor_id)
+      @armor = Armor.find(@character.armor_id)
+    end
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @character }

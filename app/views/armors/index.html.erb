@@ -1,0 +1,44 @@
+<% @title='Armors' %>
+This material is Open Game Content, and is licensed
+for public use under the terms of the
+<a href="license/ogl">Open Game License v1.0a</a>.
+<p>
+<%= link_to 'Back', :back %>
+</p>
+<h1>Armors</h1>
+
+<table>
+  <tr>
+    <th>Armor</th>
+    <th>armor_type</th>
+    <th>Style</th>
+    <th>Bonus</th>
+    <th>Nonprof Bonus</th>
+    <th>Max Dex Bonus</th>
+    <th>Armor Penalty</th>
+    <th>Arcane Spell Failure</th>
+    <th>Speed (30ft)</th>
+    <th>Weight</th>
+    <th>Purchase DC</th>
+    <th>Restriction</th>
+    <th>Setting</th>
+  </tr>
+ 
+<% @armors.each do |armor| %>
+  <tr>
+    <td><%= armor.armor_name %></td>
+    <td><%= armor.armor_type %></td>
+    <td><%= armor.style %></td>
+    <td><%= "%+d" % armor.prof_bonus %></td>
+    <td><%= "%+d" % armor.nonprof_bonus %></td>
+    <td><%= "%+d" % armor.max_dex_bonus %></td>
+    <td>-<%= armor.armor_penalty %></td>
+    <td><%= armor.arcane_spell_failure %>%</td>
+    <td><%= armor.speed %></td>
+    <td><%= armor.weight %> lb</td>
+    <td><%= armor.purchase_dc %></td>
+    <td><%= armor.restriction %></td>
+    <td><%= armor.setting %></td>
+  </tr>
+<% end %>
+</table>

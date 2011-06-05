@@ -20,6 +20,7 @@ class Character < ActiveRecord::Base
   has_many :skills, :through => :character_skills
   accepts_nested_attributes_for :character_skills, :reject_if => proc { |attributes| not attributes['ranks'].blank? and attributes['ranks'].to_i < 0 }
   accepts_nested_attributes_for :character_levels, :reject_if => proc { |attributes| attributes['class_level_id'].blank? }
+  belongs_to :armor
   after_save :roll_hit_dice
   
   include Dice
@@ -244,11 +245,27 @@ class Character < ActiveRecord::Base
   end
   
   def touch_defence
-    return class_defence_bonus + dex_mod + race.defence_size_mod
+    dex_to_ac = dex_mod
+    if armor
+      if dex_to_ac > armor.max_dex_bonus
+        dex_to_ac = armor.max_dex_bonus
+      end
+    end
+    return class_defence_bonus + dex_to_ac + race.defence_size_mod
+  end
+  
+  def equipment_defence_bonus
+    # TODO: shields
+    if armor
+      #TODO: proficiency
+      return armor.nonprof_bonus
+    else
+      return 0
+    end
   end
   
   def defence
-    return touch_defence # TODO equipment, natural armor
+    return touch_defence + equipment_defence_bonus # TODO: natural armor
   end
   
   def fort

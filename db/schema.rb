@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110602202022) do
+ActiveRecord::Schema.define(:version => 20110605094838) do
 
   create_table "armors", :force => true do |t|
     t.string   "armor_name"
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(:version => 20110602202022) do
     t.string   "restriction"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "style"
+    t.string   "setting"
   end
 
   create_table "character_levels", :force => true do |t|
@@ -60,6 +62,7 @@ ActiveRecord::Schema.define(:version => 20110602202022) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "is_hero"
+    t.integer  "armor_id"
   end
 
   create_table "class_levels", :force => true do |t|

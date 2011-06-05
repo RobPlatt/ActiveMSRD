@@ -56,6 +56,12 @@
   <% end %>
   </table>
 
+  <div class="field">
+    <%= f.label :armor %><br />
+    <%= collection_select(:character, :armor_id, Armor.all, :id, :armor_name, :prompt => true)
+    %>
+  </div>
+
   <p>
   <b>Unspent Skill Points:</b>
   <%= @character.skill_points_available %>

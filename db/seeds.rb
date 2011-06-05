@@ -77,6 +77,10 @@ Skill.seed( [
   {:skill_name => 'Treat Injury', :key_ability => 'wis' },
   {:skill_name => 'Tumble', :key_ability => 'dex', :trained_only => true, :armor_penalty => 'true' }
     ])
+    
+puts "Equipment..."
+puts "  Armor..."
+Armor.seed('db/armor.csv')
 
 puts "Seeding MSRD races..."
 

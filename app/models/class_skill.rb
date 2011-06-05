@@ -30,7 +30,6 @@ class ClassSkill < ActiveRecord::Base
         skill_list.push(s1)
       end
     }
-    print modern_class.class_name + ' skills: ' + skill_list.to_s + "\n"
     ClassSkill.seed_from_list(modern_class, skill_list)
   end
 end

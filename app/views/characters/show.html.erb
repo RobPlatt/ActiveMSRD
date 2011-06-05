@@ -40,6 +40,9 @@
 <td><%= @character.cha %></td>
 </tr>
 </table>
+<% if @armor %>
+<p><b>Armor: </b><%= @armor.armor_name %>
+<% end %>
 <p><b>Defence: </b><%= "%+d" % @character.defence %>,
 <b>Touch: </b><%= "%+d" % @character.touch_defence %>
 </p>

@@ -1,0 +1,24 @@
+Leather jacket,Impromptu,1,1,8,0,5%,30,4 lb.,10,--,light,core
+Leather armor,Archaic,2,1,6,0,10%,30,15 lb.,12,--,light,core
+Light undercover shirt,Concealable,2,1,7,0,10%,30,2 lb.,13,Lic (+1),light,core
+Pull-up pouch vest,Concealable,2,1,6,1,10%,30,2 lb.,13,Lic (+1),light,core
+Undercover vest,Concealable,3,1,5,2,15%,30,3 lb.,14,Lic (+1),light,core
+Concealable vest,Concealable,4,2,4,3,20%,25,4 lb.,15,Lic (+1),medium,core
+Chainmail shirt,Archaic,5,2,2,5,25%,20,40 lb.,18,--,medium,core
+Light-duty vest,Tactical,5,2,3,4,25%,25,8 lb.,16,Lic (+1),medium,core
+Tactical vest,Tactical,6,2,2,5,25%,25,10 lb.,17,Lic (+1),medium,core
+Special response vest,Tactical,7,3,1,6,35%,20,15 lb.,18,Lic (+1),heavy,core
+Plate mail,Archaic,8,3,1,6,35%,20,50 lb.,23,--,heavy,core
+Forced entry unit,Tactical,9,3,0,8,45%,20,20 lb.,19,Lic (+1),heavy,core
+Padded,Impromptu,1,1,8,3,5%,30,10 lb.,9,--,light,arcana
+Studded leather,Archaic,3,1,5,1,15%,30,20 lb.,13,--,light,arcana
+NBC suit,Tactical,–,–,5,4,40%,30,10 lb.,15,Res (+2),light,arcana
+Fire resistant suit,Tactical,–,–,5,4,40%,30,10 lb.,13,--,light,arcana
+Hide,Impromptu,3,2,4,3,20%,20,25 lb.,10,--,medium,arcana
+Lamellar,Archaic,5,2,3,4,30%,20,35 lb.,20,--,medium,arcana
+Scale mail,Archaic,4,2,3,4,25%,20,30 lb.,16,--,medium,arcana
+Breastplate,Archaic,5,2,3,4,25%,20,30 lb.,18,--,medium,arcana
+Splint mail,Archaic,6,3,0,7,40%,20,45 lb.,18,--,heavy,arcana
+Banded mail,Archaic,6,3,1,6,35%,20,35 lb.,19,--,heavy,arcana
+Half-plate,Archaic,7,3,0,7,35%,20,50 lb.,21,--,heavy,arcana
+O-yoroi,Archaic,7,3,2,5,40%,20,45 lb.,28,--,heavy,arcana
