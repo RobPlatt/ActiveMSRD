@@ -50,7 +50,11 @@ rounded down, at 1st level and every time they attain a new level in this class
     <td><%= "%+d" % level.base_fort %></td>
     <td><%= "%+d" % level.base_ref %></td>
     <td><%= "%+d" % level.base_will %></td>
-    <td></td>
+    <td>
+    <% if level.bonus_feat %>
+       Bonus feat
+    <% end %>
+    </td>
     <td><%= "%+d" % level.defence_bonus %></td>
     <td><%= "%+d" % level.reputation_bonus %></td>  
 </tr>

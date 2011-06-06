@@ -14,9 +14,10 @@ module CharactersHelper
       hash.stack_bonus!(level.modern_class.class_name, level.level)
     end
     a = []
-    hash.each {|c, l| a.push(c + " " + l.to_s)}
-    str = character.race.name.capitalize + " " + a.join("/")
-    if (not character.is_hero)
+    hash.each {|c, l|
+      a.push(link_to(c, modern_class_path(ModernClass.find_by_class_name(c))) + " " + l.to_s)}
+    str = link_to(character.race.name.capitalize, race_path(character.race)) + " " + raw(a.join("/"))
+    if not character.is_hero
       str = "Ordinary " + str
     end
     
