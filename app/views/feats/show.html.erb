@@ -1,0 +1,19 @@
+<% @title=@feat.feat_name %>
+<p>
+<%= link_to 'Home', :root %> |
+<%= link_to 'All Feats', feats_path %>
+
+<h1><%= @feat.feat_name %></h1>
+
+<% if not @feat.prerequisite.empty? %>
+<p><b>Prerequisite:</b> <%= @feat.prerequisite %></p>
+<% end %>
+<% if not @feat.benefit.empty? %>
+<p><b>Benefit:</b> <%= @feat.benefit %></p>
+<% end %>
+<% if not @feat.normal.empty? %>
+<p><b>Normal:</b> <%= @feat.normal %></p>
+<% end %>
+<% if not @feat.special.empty? %>
+<p><b>Special:</b> <%= @feat.special %></p>
+<% end %>

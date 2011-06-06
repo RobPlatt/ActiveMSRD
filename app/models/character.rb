@@ -233,13 +233,18 @@ class Character < ActiveRecord::Base
   end
   
   def attack_bonus_with(character_weapon)
-    if character_weapon.weapon.is_ranged
+    if character_weapon.weapon.is_ranged or
+                        has_feat("Weapon Finesse (#{character_weapon.weapon.weapon_name})")
       attack_bonus = ranged_attack
     else
       attack_bonus = melee_attack
     end
     
     if character_weapon.mastercraft
+      attack_bonus = attack_bonus + 1
+    end
+    
+    if has_feat("Weapon Focus (#{character_weapon.weapon.weapon_name}")
       attack_bonus = attack_bonus + 1
     end
     
@@ -367,6 +372,10 @@ class Character < ActiveRecord::Base
       end
     end
     return total
+  end
+  
+  def has_feat(featname)
+    return false
   end
   
 end

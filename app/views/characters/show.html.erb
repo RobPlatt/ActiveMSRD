@@ -6,7 +6,7 @@
 <%= link_to 'Delete', @character, :confirm => 'Are you sure?', :method => :delete %>
 </p>
 <h1><%= @character.name %></h1>
-<p><b><%= show_build(@character) %>, CR</b><%= @character.challenge_rating %></p>
+<p><b><%= raw(show_build(@character)) %>, CR</b><%= @character.challenge_rating %></p>
 <p>
 <%= raw(@description) %>
 </p>

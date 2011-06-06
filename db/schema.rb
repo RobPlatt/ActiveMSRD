@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110605160857) do
+ActiveRecord::Schema.define(:version => 20110606213313) do
 
   create_table "armors", :force => true do |t|
     t.string   "armor_name"
@@ -28,6 +28,13 @@ ActiveRecord::Schema.define(:version => 20110605160857) do
     t.datetime "updated_at"
     t.string   "style"
     t.string   "setting"
+  end
+
+  create_table "character_level_feats", :force => true do |t|
+    t.integer  "character_level_id"
+    t.integer  "feat_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "character_levels", :force => true do |t|
@@ -73,6 +80,13 @@ ActiveRecord::Schema.define(:version => 20110605160857) do
     t.integer  "armor_id"
   end
 
+  create_table "class_feats", :force => true do |t|
+    t.integer  "modern_class_id"
+    t.integer  "feat_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "class_levels", :force => true do |t|
     t.integer  "modern_class_id"
     t.integer  "level"
@@ -85,11 +99,22 @@ ActiveRecord::Schema.define(:version => 20110605160857) do
     t.text     "code"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "bonus_feat"
   end
 
   create_table "class_skills", :force => true do |t|
     t.integer  "modern_class_id"
     t.integer  "skill_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "feats", :force => true do |t|
+    t.string   "feat_name"
+    t.text     "prerequisite"
+    t.text     "benefit"
+    t.text     "normal"
+    t.text     "special"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

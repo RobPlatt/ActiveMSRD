@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  modern_class_id: 1
+  feat_id: 1
+
+two:
+  modern_class_id: 1
+  feat_id: 1

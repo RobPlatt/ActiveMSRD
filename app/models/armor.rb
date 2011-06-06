@@ -3,10 +3,14 @@ require 'csv'
 class Armor < ActiveRecord::Base
   has_many :characters, :dependent => :restrict
   
+  def to_param
+    "#{id}-#{armor_name.downcase.gsub(/[^[:alnum:]]/,'-')}".gsub(/-{2,}/,'-')
+  end
+  
   def self.seed(filename)
    CSV.foreach filename do |row|
       Armor.find_or_create_by_armor_name(
-        :armor_name => row[0],
+        :armor_name => row[0]).update_attributes(
         :style => row[1],
         :prof_bonus => row[2],
         :nonprof_bonus => row[3],

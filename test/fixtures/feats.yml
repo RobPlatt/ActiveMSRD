@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  feat_name: MyString
+  prerequisite: MyText
+  benefit: MyText
+  normal: MyText
+  special: MyText
+
+two:
+  feat_name: MyString
+  prerequisite: MyText
+  benefit: MyText
+  normal: MyText
+  special: MyText

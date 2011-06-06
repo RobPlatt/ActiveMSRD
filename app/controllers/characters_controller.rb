@@ -24,7 +24,16 @@ class CharactersController < ApplicationController
       format.xml  { render :xml => @character }
     end
   end
-  
+
+  def build_level(character, x)
+    character_level = character.character_levels.build(:level => x)
+    if x == 1
+      2.times {character_level.character_level_feats.build}
+    elsif x.modulo(3) == 0
+      character_level.character_level_feats.build
+  end
+
+  end  
   
   # GET /characters/new
   # GET /characters/new.xml
@@ -34,7 +43,7 @@ class CharactersController < ApplicationController
       @character.character_skills.build(:character_id => @character.id, :skill_id => skill.id)
     end
     for x in 1..20
-      @character.character_levels.build(:level => x)
+      build_level(@character, x)
     end
     
     respond_to do |format|
@@ -55,8 +64,12 @@ class CharactersController < ApplicationController
     end
     
     for x in 1..20
-      if (not @character.character_levels.find_by_level(x))
-        @character.character_levels.build(:level => x)
+      character_level = @character.character_levels.find_by_level(x)
+      if character_level
+        (character_level.character_level_feats.count - character_level.num_feat_slots).times {
+            character_level.character_level_feats.build }
+      else
+        build_level(@character, x)
       end
     end
     

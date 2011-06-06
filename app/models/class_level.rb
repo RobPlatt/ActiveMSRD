@@ -101,4 +101,18 @@ class ClassLevel < ActiveRecord::Base
       level_number = level_number + 1
     end
   end
+  
+  def has_feat
+    if bonus_feat
+      return true
+    else
+      return false
+    end
+  end
+  
+  def bonus_feat_list
+    if class_feat
+      return modern_class.feats
+    end
+  end
 end

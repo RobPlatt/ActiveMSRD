@@ -78,11 +78,14 @@ Skill.seed( [
   {:skill_name => 'Tumble', :key_ability => 'dex', :trained_only => true, :armor_penalty => 'true' }
     ])
     
-puts "Equipment..."
+puts "Seeding MSRD equipment..."
 puts "  Armor..."
 Armor.seed('db/armor.csv')
 puts "  Ranged weapons..."
 Weapon.seed_ranged('db/ranged_weapons.csv')
+
+puts "Seeding MSRD feats..."
+Feat.seed('db/feats.txt')
 
 puts "Seeding MSRD races..."
 
@@ -108,15 +111,15 @@ strong_hero.update_attributes(
 ClassLevel.seed(strong_hero,
   [
   { },
+  { :bonus_feat => true },
   { },
+  { :bonus_feat => true },
   { },
+  { :bonus_feat => true },
   { },
+  { :bonus_feat => true },
   { },
-  { },
-  { },
-  { },
-  { },
-  { }
+  { :bonus_feat => true }
   ])
 ClassSkill.seed(strong_hero,
 "Climb (Str), Craft (structural) (Int), Handle Animal (Cha), Jump (Str), Knowledge (current events, popular culture, streetwise, tactics) (Int), Profession (Wis), Read/Write Language (none), Repair (Int), Speak Language (none), and Swim (Str)"

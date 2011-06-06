@@ -3,6 +3,10 @@ require 'csv'
 class Weapon < ActiveRecord::Base
   has_many :character_weapons, :dependent => :restrict
   
+  def to_param
+    "#{id}-#{weapon_name.downcase.gsub(/[^[:alnum:]]/,'-')}".gsub(/-{2,}/,'-')
+  end
+  
   def is_ranged
     return magazine != nil
   end
@@ -10,7 +14,7 @@ class Weapon < ActiveRecord::Base
   def self.seed_ranged(filename)
    CSV.foreach filename do |row|
       Weapon.find_or_create_by_weapon_name(
-      :weapon_name => row[0],
+      :weapon_name => row[0]).update_attributes(
       :damage => row[1],
       :critical => row[2],
       :damage_type => row[3],
