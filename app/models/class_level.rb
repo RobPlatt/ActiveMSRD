@@ -111,7 +111,7 @@ class ClassLevel < ActiveRecord::Base
   end
   
   def bonus_feat_list
-    if class_feat
+    if bonus_feat
       return modern_class.feats
     end
   end

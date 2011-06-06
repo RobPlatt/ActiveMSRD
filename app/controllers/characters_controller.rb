@@ -66,8 +66,8 @@ class CharactersController < ApplicationController
     for x in 1..20
       character_level = @character.character_levels.find_by_level(x)
       if character_level
-        (character_level.character_level_feats.count - character_level.num_feat_slots).times {
-            character_level.character_level_feats.build }
+        (character_level.num_feat_slots - character_level.character_level_feats.count).times {
+          character_level.character_level_feats.build }
       else
         build_level(@character, x)
       end

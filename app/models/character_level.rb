@@ -4,7 +4,7 @@ class CharacterLevel < ActiveRecord::Base
   has_one    :modern_class, :through => :class_level
   has_one    :race, :through => :character 
   has_many   :character_level_feats, :dependent => :destroy
-  accepts_nested_attributes_for :character_level_feats, :reject_if => proc { |attributes| attributes['feat_id'].blank? }
+  accepts_nested_attributes_for :character_level_feats
   
   def <=>(other)
     if self.level < other.level
