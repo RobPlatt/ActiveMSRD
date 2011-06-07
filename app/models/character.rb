@@ -307,20 +307,28 @@ class Character < ActiveRecord::Base
   end
   
   def fort
-    return base_fort + con_mod
+    return base_fort + con_mod + 2*feat_count('Great Fortitude')
   end
   
   def ref
-    return base_ref + dex_mod
+    return base_ref + dex_mod + 2*feat_count('Lightning Reflexes')
   end
   
   def will
-    return base_will + wis_mod
+    return base_will + wis_mod + 2*feat_count('Iron Will')
   end
   
   def skill_bonus(skill_id)
     skill = Skill.find(skill_id)
     bonus = ability_mod(skill.key_ability)
+
+    #^The character gets a \+2 bonus on all    
+    r = Regexp.new "^The character gets a \.2 bonus on all(\.*)#{skill.skill_name} checks"
+    feats.each do |x|
+      if x.benefit and x.benefit.match(r)
+        bonus = bonus + 2
+      end
+    end
     
     # add on ranks in skill
     character_skill = character_skills.find_by_skill_id(skill_id)
