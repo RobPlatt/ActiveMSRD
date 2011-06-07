@@ -124,6 +124,8 @@ ClassLevel.seed(strong_hero,
 ClassSkill.seed(strong_hero,
 "Climb (Str), Craft (structural) (Int), Handle Animal (Cha), Jump (Str), Knowledge (current events, popular culture, streetwise, tactics) (Int), Profession (Wis), Read/Write Language (none), Repair (Int), Speak Language (none), and Swim (Str)"
 )
+ClassFeat.seed(strong_hero,
+"Animal Affinity, Archaic Weapons Proficiency, Athletic, Blind-Fight, Brawl, Cleave, Combat Martial Arts, Combat Reflexes, Great Cleave, Improved Brawl, Improved Combat Martial Arts, Power Attack, Weapon Focus")
 
 fast_hero = ModernClass.find_or_create_by_class_name(:class_name => 'Fast Hero')
 fast_hero.update_attributes(

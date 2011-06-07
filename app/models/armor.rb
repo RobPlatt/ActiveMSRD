@@ -10,19 +10,19 @@ class Armor < ActiveRecord::Base
   def self.seed(filename)
    CSV.foreach filename do |row|
       Armor.find_or_create_by_armor_name(
-        :armor_name => row[0]).update_attributes(
-        :style => row[1],
-        :prof_bonus => row[2],
-        :nonprof_bonus => row[3],
-        :max_dex_bonus => row[4],
-        :armor_penalty => row[5],
-        :arcane_spell_failure => row[6],
-        :speed => row[7],
-        :weight => row[8],
-        :purchase_dc => row[9],
-        :restriction => row[10],
-        :armor_type => row[11],
-        :setting => row[12])
+        :armor_name => row[0].rstrip).update_attributes(
+        :style => row[1].rstrip,
+        :prof_bonus => row[2].rstrip,
+        :nonprof_bonus => row[3].rstrip,
+        :max_dex_bonus => row[4].rstrip,
+        :armor_penalty => row[5].rstrip,
+        :arcane_spell_failure => row[6].rstrip,
+        :speed => row[7].rstrip,
+        :weight => row[8].rstrip,
+        :purchase_dc => row[9].rstrip,
+        :restriction => row[10].rstrip,
+        :armor_type => row[11].rstrip,
+        :setting => row[12].rstrip)
       end
   end
 end

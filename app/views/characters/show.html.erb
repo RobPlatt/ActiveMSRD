@@ -70,12 +70,15 @@
 <tr>
   <% @weapon = character_weapon.weapon %>
   <td><%= link_to @weapon.weapon_name, weapon_path(@weapon) %></td>
-  <td><%= @character.attack_bonus_with(character_weapon) %></td>
+  <td><%= "%+d" % @character.attack_bonus_with(character_weapon) %></td>
   <td><%= @character.damage_with(character_weapon) %></td>
 </tr>
 <% end %>
 </table>
 <table>
+<p><b>Feats:</b>
+<%= raw(@character.feats.collect {|f| link_to f.feat_name, feat_path(f)}.sort.join(", ")) %>
+</p>
 <tr>
 <th>Skill Name</th>
 <th>Bonus</th>

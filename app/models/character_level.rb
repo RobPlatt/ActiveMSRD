@@ -27,21 +27,21 @@ class CharacterLevel < ActiveRecord::Base
   end
   
   def num_feat_slots
-    feats = 0
-    if level == 1
-      feats.next
-      if race == nil or race == 'human'
-        feats.next
+    slots = 0
+    if self.level == 1
+      slots = slots + 1
+      if self.race == nil or self.race.name == 'human'
+        slots = slots + 1
       end
-    elsif level.modulo(3) == 0
-      feats.next
+    elsif self.level.modulo(3) == 0
+      slots = slots + 1
     end
     
-    if class_level and class_level.has_feat
-      feats.next
+    if self.class_level and self.class_level.has_feat
+      slots = slots + 1
     end
     
-    return feats
+    return slots
   end
   
   def feats_allowed(feat_number)

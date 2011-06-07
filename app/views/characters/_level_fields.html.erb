@@ -12,12 +12,12 @@
       <td></td>
     <% end %>
 
-    <td>
-      <% feat_number = 0 %>
-      <%= f.fields_for(:character_level_feats) do |builder| %>
-        <% feat_number.next %>
+    <% feat_number = 0 %>
+    <%= f.fields_for(:character_level_feats) do |builder| %>
+      <% feat_number = feat_number + 1 %>
+      <td>
         <%= builder.collection_select(:feat_id, f.object.feats_allowed(feat_number), :id, :feat_name, :prompt => true) %>
-      <% end %>
-    </td>
+      </td>
+    <% end %>
     </tr>
   </div>

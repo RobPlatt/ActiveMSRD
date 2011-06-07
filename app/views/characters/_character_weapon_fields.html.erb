@@ -2,7 +2,11 @@
     <%= f.hidden_field :character_id %>
     <%= f.label :weapon, "Weapon:" %>
     <%= f.collection_select(:weapon_id, Weapon.all, :id, :weapon_name, :prompt => true) %>
-    <%= f.label :weapon, "Mastercraft:" %>
+    <%= f.label :mastercraft %>
     <%= f.check_box :mastercraft %>
+    <%= f.label :weapon_focus %>
+    <%= f.check_box :weapon_focus %>
+    <%= f.label :weapon_finesse %>
+    <%= f.check_box :weapon_finesse %>
     <%= f.link_to_remove "remove" %>
   </div>

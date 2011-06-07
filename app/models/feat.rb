@@ -35,11 +35,11 @@ class Feat < ActiveRecord::Base
       else
         if feat_name
           Feat.find_or_create_by_feat_name(
-              :feat_name => feat_name).update_attributes(
-              :prerequisite => prerequisites,
-              :benefit => benefit,
-              :normal => normal,
-              :special => special
+              :feat_name => feat_name.rstrip).update_attributes(
+              :prerequisite => prerequisites.rstrip,
+              :benefit => benefit.rstrip,
+              :normal => normal.rstrip,
+              :special => special.rstrip
             )
           feat_name = nil
           prerequisites = ""

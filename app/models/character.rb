@@ -100,6 +100,7 @@ class Character < ActiveRecord::Base
         hp = hp + 1 + c
       end
     end
+    hp = hp + 3 * feat_count('Toughness')
     return hp
   end
   
@@ -233,18 +234,17 @@ class Character < ActiveRecord::Base
   end
   
   def attack_bonus_with(character_weapon)
-    if character_weapon.weapon.is_ranged or
-                        has_feat("Weapon Finesse (#{character_weapon.weapon.weapon_name})")
+    if character_weapon.weapon.is_ranged or character_weapon.weapon_finesse
       attack_bonus = ranged_attack
     else
       attack_bonus = melee_attack
     end
-    
-    if character_weapon.mastercraft
+
+    if character_weapon.weapon_focus
       attack_bonus = attack_bonus + 1
     end
     
-    if has_feat("Weapon Focus (#{character_weapon.weapon.weapon_name}")
+    if character_weapon.mastercraft
       attack_bonus = attack_bonus + 1
     end
     
@@ -286,13 +286,20 @@ class Character < ActiveRecord::Base
   end
   
   def equipment_defence_bonus
-    # TODO: shields
+    
+    equip_bonus = 0
+    
     if armor
-      #TODO: proficiency
-      return armor.nonprof_bonus
-    else
-      return 0
+      if has_feat "Armor Proficiency (#{armor.armor_type})"
+        equip_bonus = equip_bonus + armor.prof_bonus
+      else
+        equip_bonus = equip_bonus + armor.nonprof_bonus
+      end
     end
+    
+    # TODO: shields
+    
+    return equip_bonus
   end
   
   def defence
@@ -374,8 +381,47 @@ class Character < ActiveRecord::Base
     return total
   end
   
+  def feat_count(featname)
+    # TODO make this more railsy
+    fid = Feat.find_by_feat_name(featname)
+    count = 0
+    character_levels.each do |cl|
+      cl.character_level_feats.each do |f|
+        if f.feat and f.feat.feat_name.downcase == featname.downcase
+          count = count + 1
+        end
+      end
+    end
+    
+    return count
+  end
+  
   def has_feat(featname)
+    # TODO make this more railsy
+    fid = Feat.find_by_feat_name(featname)
+    
+    character_levels.each do |cl|
+      cl.character_level_feats.each do |f|
+        if f.feat and f.feat.feat_name.downcase == featname.downcase
+          return true
+        end
+      end
+    end
+    
     return false
+  end
+  
+  def feats
+    a = []
+    character_levels.each do |cl|
+      cl.character_level_feats.each do |f|
+        if f.feat
+          a.push(f.feat)
+        end
+      end
+    end
+    
+    return a
   end
   
 end
