@@ -58,8 +58,9 @@
 
   <div class="field">
     <%= f.fields_for(:character_occupation) do |builder| %>
-    <%= f.label :occupation %><br />
-    <%= collection_select(:character_occupation, :occupation_id, Occupation.all, :id, :name, :prompt => true) %>
+    <%= builder.label :occupation %><br />
+    <%= builder.collection_select(:occupation_id, Occupation.all, :id, :name, :prompt => true) %>
+    <%= builder.hidden_field :character_id %>
     <% end %>
   </div>
   

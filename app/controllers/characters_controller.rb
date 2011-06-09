@@ -57,7 +57,7 @@ class CharactersController < ApplicationController
   def edit
     @character = Character.find(params[:id])
     if not @character.character_occupation
-      @character.character_occupation.build
+      @character.build_character_occupation
     end
     # fill in any missing character skills
     Skill.all.each do |skill|
