@@ -80,12 +80,15 @@ Skill.seed( [
     
 puts "Seeding MSRD equipment..."
 puts "  Armor..."
-Armor.seed('db/armor.csv')
+Armor.seed('db/seedfiles/armor.csv')
 puts "  Ranged weapons..."
-Weapon.seed_ranged('db/ranged_weapons.csv')
+Weapon.seed_ranged('db/seedfiles/ranged_weapons.csv')
 
 puts "Seeding MSRD feats..."
-Feat.seed('db/feats.txt')
+Feat.seed('db/seedfiles/feats.txt')
+
+puts "Seeding MSRD occupations..."
+Occupation.seed('db/seedfiles/occupations.txt')
 
 puts "Seeding MSRD races..."
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110607182229) do
+ActiveRecord::Schema.define(:version => 20110607211335) do
 
   create_table "armors", :force => true do |t|
     t.string   "armor_name"
@@ -45,6 +45,14 @@ ActiveRecord::Schema.define(:version => 20110607182229) do
     t.datetime "updated_at"
     t.integer  "class_level_id"
     t.string   "ability_increase"
+  end
+
+  create_table "character_occupations", :force => true do |t|
+    t.integer  "character_id"
+    t.integer  "occupation_id"
+    t.integer  "feat_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "character_skills", :force => true do |t|
@@ -135,6 +143,30 @@ ActiveRecord::Schema.define(:version => 20110607182229) do
     t.boolean  "good_will",        :default => false
     t.string   "defence_bonus",    :default => "average"
     t.string   "reputation_bonus", :default => "average"
+  end
+
+  create_table "occupation_feats", :force => true do |t|
+    t.integer  "occupation_id"
+    t.integer  "feat_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "occupation_skills", :force => true do |t|
+    t.integer  "occupation_id"
+    t.integer  "skill_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "occupations", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "prerequisite"
+    t.integer  "reputation_bonus_increase"
+    t.integer  "wealth_bonus_increase"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "pages", :force => true do |t|

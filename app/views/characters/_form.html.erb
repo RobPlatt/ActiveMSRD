@@ -56,6 +56,13 @@
     <%= f.label :starting_cha, 'CHA' %>
     <%= f.text_field :starting_cha, :size => 3, :max_length => 2%>
 
+  <div class="field">
+    <%= f.fields_for(:character_occupation) do |builder| %>
+    <%= f.label :occupation %><br />
+    <%= collection_select(:character_occupation, :occupation_id, Occupation.all, :id, :name, :prompt => true) %>
+    <% end %>
+  </div>
+  
   <table>
   <%= f.fields_for(:character_levels) do |builder| %>
   <%= render 'level_fields', :f => builder, :c => @character %>

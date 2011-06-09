@@ -9,7 +9,7 @@ class FeatsController < ApplicationController
   end
 
   def show
-    @feat= Feat.find(params[:id])
+    @feat = Feat.find(params[:id])
  
     respond_to do |format|
       format.html # show.html.erb

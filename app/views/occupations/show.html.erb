@@ -1,0 +1,12 @@
+<% @title=@occupation.name %>
+<p>
+<%= link_to 'Home', :root %> |
+<%= link_to 'All occupations', occupations_path %>
+
+<h1><%= @occupation.name %></h1>
+<p><%= @occupation.description %></p>
+<% if not @occupation.prerequisite.empty? %>
+<p><b>Prerequisite:</b> <%= @occupation.prerequisite %></p>
+<% end %>
+
+

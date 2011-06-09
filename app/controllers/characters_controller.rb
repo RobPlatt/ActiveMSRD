@@ -39,6 +39,7 @@ class CharactersController < ApplicationController
   # GET /characters/new.xml
   def new
     @character = Character.new
+    @character.build_character_occupation
     Skill.all.each do |skill|
       @character.character_skills.build(:character_id => @character.id, :skill_id => skill.id)
     end
@@ -55,6 +56,9 @@ class CharactersController < ApplicationController
   # GET /characters/1/edit
   def edit
     @character = Character.find(params[:id])
+    if not @character.character_occupation
+      @character.character_occupation.build
+    end
     # fill in any missing character skills
     Skill.all.each do |skill|
       character_skill = @character.character_skills.find_by_skill_id(skill.id)

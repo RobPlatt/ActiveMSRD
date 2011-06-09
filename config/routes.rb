@@ -1,5 +1,9 @@
 ActiveMSRD::Application.routes.draw do
 
+  get "occupations/index"
+
+  get "occupations/show"
+
   get "feats/index"
 
   get "feats/show"
@@ -43,6 +47,7 @@ ActiveMSRD::Application.routes.draw do
   resources :skills
   resources :feats
   resources :characters
+  resources :occupations
   resources :modern_classes do
     resources :class_levels
     resources :class_skills

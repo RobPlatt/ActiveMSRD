@@ -3,6 +3,7 @@ class Skill < ActiveRecord::Base
   has_many :modern_classes, :through => :class_skills
   has_many :character_skills, :dependent => :restrict
   has_many :characters, :through => :character_skills
+  has_many :occupation_skills, :dependent => :restrict
   
   def to_param
     "#{id}-#{skill_name.downcase.gsub(/[^[:alnum:]]/,'-')}".gsub(/-{2,}/,'-')

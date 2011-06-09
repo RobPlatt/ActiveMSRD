@@ -16,12 +16,14 @@ class Character < ActiveRecord::Base
   has_many :character_levels, :dependent => :destroy
   has_many :class_levels, :through => :character_levels
   belongs_to :race
+  has_one :character_occupation
   has_many :character_skills, :dependent => :destroy
   has_many :skills, :through => :character_skills
   belongs_to :armor
   has_many :character_weapons, :dependent => :destroy
   has_many :weapons, :through => :character_weapons
   after_save :roll_hit_dice
+  accepts_nested_attributes_for :character_occupation
   accepts_nested_attributes_for :character_weapons, :allow_destroy => true
   accepts_nested_attributes_for :character_skills, :reject_if => proc { |attributes| not attributes['ranks'].blank? and attributes['ranks'].to_i < 0 }
   accepts_nested_attributes_for :character_levels, :reject_if => proc { |attributes| attributes['class_level_id'].blank? }
@@ -87,6 +89,10 @@ class Character < ActiveRecord::Base
       end
       
     end
+  end
+  
+  def massive_damage_threshold
+    return con
   end
   
   def hit_points

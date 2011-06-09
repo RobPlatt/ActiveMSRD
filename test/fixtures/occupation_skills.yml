@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  occupation_id: 1
+  skill_id: 1
+
+two:
+  occupation_id: 1
+  skill_id: 1

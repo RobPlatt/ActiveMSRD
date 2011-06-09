@@ -1,0 +1,14 @@
+<% @title='Occupation' %>
+This material is Open Game Content, and is licensed
+for public use under the terms of the
+<a href="license/ogl">Open Game License v1.0a</a>.
+<p>
+<%= link_to 'Home', :root %>
+</p>
+<h1>Starting Occupations</h1>
+
+<ul> 
+<% @occupations.each do |occupation| %>
+<li><%= link_to occupation.name, occupation_path(occupation) %>
+<% end %>
+</ul>

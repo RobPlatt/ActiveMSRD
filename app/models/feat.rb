@@ -1,6 +1,8 @@
 class Feat < ActiveRecord::Base
   has_many :character_level_feats, :dependent => :restrict
   has_many :class_feats, :dependent => :restrict
+  has_many :occupation_feats, :dependent => :restrict
+  has_many :character_occupations, :dependent => :restrict
   
   def to_param
     "#{id}-#{feat_name.downcase.gsub(/[^[:alnum:]]/,'-')}".gsub(/-{2,}/,'-')
@@ -27,7 +29,7 @@ class Feat < ActiveRecord::Base
         if feat_name == nil
           feat_name = line
         else
-          line.match(/^Prequisite(s*): (.*)/) {|x| prequisites = prequisites + x[2]}
+          line.match(/^Prerequisite(s*): (.*)/) {|x| prerequisites = prerequisites + x[2]}
           line.match(/^Benefit(s*): (.*)/) {|x| benefit = benefit + x[2]}
           line.match(/^Normal: (.*)/) {|x| normal = normal + x[1]}
           line.match(/^Special: (.*)/) {|x| special = special + x[1]}
