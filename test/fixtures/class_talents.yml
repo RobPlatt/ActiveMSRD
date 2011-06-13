@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  talent_name: MyString
+  description: MyText
+  prerequisite: MyString
+
+two:
+  talent_name: MyString
+  description: MyText
+  prerequisite: MyString

@@ -7,6 +7,9 @@
 <p><%= @occupation.description %></p>
 <% if not @occupation.prerequisite.empty? %>
 <p><b>Prerequisite:</b> <%= @occupation.prerequisite %></p>
+  <% @occupation.occupation_feats.each do |occupation_feat| %>
+  feat <%= occupation_feat.feat.feat_name %>
+  <% end %>
 <% end %>
 
 

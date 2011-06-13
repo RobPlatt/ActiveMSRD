@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  character_level_id: 1
+  class_talent_id: 1
+
+two:
+  character_level_id: 1
+  class_talent_id: 1

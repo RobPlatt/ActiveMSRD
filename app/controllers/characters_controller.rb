@@ -86,7 +86,12 @@ class CharactersController < ApplicationController
     
     respond_to do |format|
       if @character.save
-        format.html { redirect_to(@character, :notice => 'Character was successfully created.') }
+        if params[:commit] == 'Apply'
+          redirect_path = edit_character_path(@character)
+        else
+          redirect_path = @character
+        end
+        format.html { redirect_to redirect_path, :notice => 'Character was successfully created.' }
         format.xml  { render :xml => @character, :status => :created, :location => @character }
       else
         format.html { render :action => "new" }
@@ -102,7 +107,12 @@ class CharactersController < ApplicationController
 
     respond_to do |format|
       if @character.update_attributes(params[:character])
-        format.html { redirect_to(@character, :notice => 'Character was successfully updated.') }
+        if params[:commit] == 'Apply'
+          redirect_path = edit_character_path(@character)
+        else
+          redirect_path = @character
+        end
+        format.html { redirect_to redirect_path, :notice => 'Character was successfully updated.' }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

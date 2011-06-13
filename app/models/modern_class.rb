@@ -2,6 +2,7 @@ class ModernClass < ActiveRecord::Base
   has_many :class_levels, :dependent => :restrict
   has_many :class_skills, :dependent => :restrict
   has_many :class_feats, :dependent => :restrict
+  has_many :class_talents, :dependent => :restrict
   has_many :skills, :through => :class_skills
   has_many :feats, :through => :class_feats
   
