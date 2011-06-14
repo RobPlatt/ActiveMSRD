@@ -5,11 +5,24 @@
 
 <h1><%= @occupation.name %></h1>
 <p><%= @occupation.description %></p>
+
 <% if not @occupation.prerequisite.empty? %>
 <p><b>Prerequisite:</b> <%= @occupation.prerequisite %></p>
-  <% @occupation.occupation_feats.each do |occupation_feat| %>
-  feat <%= occupation_feat.feat.feat_name %>
-  <% end %>
 <% end %>
+
+<% if @occupation.num_skills_to_choose %>
+<p><b>Skills:</b> Choose <%= @occupation.num_skills_to_choose %> of the following <%= link_to "skills", skills_path %> as permanent class skills.
+If a skill the character selects is already a class skill, he or she receives
+a +1 competence bonus on checks using that skill.
+<%= raw(@occupation.occupation_skills.collect {|x| link_to x.skill.skill_name, skill_path(x)}.join(', ')) %>
+</p>
+<% end %>
+
+<% if @occupation.occupation_feats and @occupation.occupation_feats.count > 0 %>
+<p><b>Bonus feat:</b> Select one of the following:
+<%= raw(@occupation.occupation_feats.collect {|x| link_to x.feat.feat_name, feat_path(x)}.join(', ')) %>
+</p>
+<% end %>
+
 
 

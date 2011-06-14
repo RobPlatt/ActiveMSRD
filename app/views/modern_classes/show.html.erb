@@ -22,7 +22,7 @@ rounded down, at 1st level and every time they attain a new level in this class
 </p>
 <p>
 <b>Class Skills: </b>
-<%= @modern_class.skills.collect {|c| c.skill_name}.join(", ") %>
+<%= raw(@modern_class.skills.collect {|skill| link_to skill.skill_name, skill_path(skill) }.join(", ")) %>
 </p>
 <p>
 <b>Skill Points at 1st level: </b>
@@ -60,3 +60,7 @@ rounded down, at 1st level and every time they attain a new level in this class
 </tr>
 <% end %>
 </table>
+<p>
+<b>Bonus Feats: </b>
+<%= raw(@modern_class.feats.collect {|feat| link_to feat.feat_name, feat_path(feat) }.join(", ")) %>
+</p>

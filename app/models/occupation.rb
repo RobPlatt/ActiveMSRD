@@ -12,6 +12,8 @@ class Occupation < ActiveRecord::Base
     prerequisite = ""
     description = nil
     bonus_feats = []
+    permanent_skills = []
+    num_skills = nil
     
     count = 0
     
@@ -35,18 +37,38 @@ class Occupation < ActiveRecord::Base
               end
               }
             }
+          line.match(/^Skills: Choose (\w+) (.*)/) {|x|
+            Skill.all.each { |skill|
+              if x[2].include?(skill.skill_name)
+                permanent_skills.push(skill)
+              end
+              }
+            if x[1] == 'one'
+              num_skills = 1
+            elsif x[1] == 'two'
+              num_skills = 2
+            elsif x[1] == 'three'
+              num_skills = 3
+            end
+          }
         end
       else
         if occupation_name and description
-          occupation_id = Occupation.find_or_create_by_name(
-              occupation_name.rstrip).update_attributes(
+          occupation = Occupation.find_or_create_by_name(
+                                       occupation_name.rstrip)
+          occupation.update_attributes(
               :description => description.rstrip,
-              :prerequisite => prerequisite.rstrip
-            )
+              :prerequisite => prerequisite.rstrip,
+              :num_skills_to_choose => num_skills
+              )
           bonus_feats.each { |feat|
             OccupationFeat.find_or_create_by_occupation_id_and_feat_id(
-                   :occupation_id => occupation_id, :feat_id =>feat.id)
+                   :occupation_id => occupation.id, :feat_id => feat.id)
                  }
+          permanent_skills.each { |skill|
+            OccupationSkill.find_or_create_by_occupation_id_and_skill_id(
+                   :occupation_id => occupation.id, :skill_id => skill.id)
+          }
           occupation_name = nil
           prerequisite = ""
           description = nil

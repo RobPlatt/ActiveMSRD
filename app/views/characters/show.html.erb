@@ -2,6 +2,7 @@
 <p>
 <%= link_to 'Home', :root %> |
 <%= link_to 'All Characters', characters_path %> |
+<%= link_to 'New Character', new_character_path %> |
 <%= link_to 'Edit', edit_character_path(@page) %> |
 <%= link_to 'Delete', @character, :confirm => 'Are you sure?', :method => :delete %>
 </p>
@@ -87,7 +88,7 @@
 </tr>
 <% Skill.each_except_languages do |skill| %>
 <tr>
-    <td><%= skill.skill_name %></td>
+    <td><%= link_to skill.skill_name, skill_path(skill) %></td>
     <td><%= show_skill_bonus(@character.skill_bonus(skill.id)) %></td>
 </tr>
 <% end %>
