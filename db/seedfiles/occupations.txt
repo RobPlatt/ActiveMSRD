@@ -124,3 +124,46 @@ Office workers and desk jockeys, lawyers, accountants, insurance agents, bank pe
 Prerequisite: Age 23+.
 Skills: Choose two of the following skills as permanent class skills. If a skill the character selects is already a class skill, he or she receives a +1 competence bonus on checks using that skill.  Computer Use, Diplomacy, Knowledge (art, business, civics, earth and life sciences, history, physical sciences, or technology), Research.
 Wealth Bonus Increase: +3.
+
+Apothecary
+Apothecaries are people who study the science of mixing chemicals, elements, and naturally occurring materials together for predictable results. They often go on to be research scientists, inventors, pharmacists, or alchemists.
+Prerequisite: Age 20+.
+Skills: Choose three of the following skills as permanent class skills. If a skill you select is already a class skill, you receive a +1 competence bonus on checks using that skill. Craft (chemical, mechanical, pharmaceutical, or writing), Disable Device, Knowledge (arcane lore, earth and life sciences, history, or physical sciences), Repair, Research.
+Bonus Feat: Select either Arcane Skills or Educated.
+Wealth Bonus: +3.
+
+Hedge Wizard
+A hedge wizard is someone who has spent a great deal of time studying the arcane arts without the benefit of having any formal training or mentoring.
+Prerequisite: Intelligence 10.
+Skills: Choose three of the following skills as permanent class skills. If a skill you select is already a class skill, you receive a +1 competence bonus on checks using that skill. Concentration, Craft (chemical or writing), Decipher Script, Gather Information, Knowledge (arcane lore, art, earth and life sciences, history, or physical sciences), Research.
+Bonus Feat: Select either: Magical Heritage or Magical Affinity.
+Wealth Bonus: +2.
+
+Novitiate
+Novitiates draw quiet strength from their belief in a greater power. They do not necessarily have ties to a specific religion or denomination—their faith is enough. Some novitiates are lay clergy, counselors, motivational speakers, social workers, or any other position involved with helping people who have lost hope and faith.
+Prerequisite: Wisdom 10.
+Skills: Choose three of the following skills as permanent class skills. If a skill you select is already a class skill, you receive a +1 competence bonus on checks using that skill. Concentration, Craft (writing), Decipher Script, Diplomacy, Knowledge (arcane lore, art, behavioral sciences, history, or theology and philosophy), Sense Motive.
+Bonus Feat: Select either: Divine Heritage or Magical Affinity.
+Wealth Bonus: +2.
+
+Psychic
+Psychics can be people with innate, low-level psionic abilities or simply con-artists looking to make a buck off those gullible enough to believe their ruses. 
+Prerequisite: Age 15+.
+Skills: Choose two of the following skills as permanent class skills. If a skill you select is already a class skill, you receive a +1 competence bonus on checks using that skill. Bluff, Concentration, Diplomacy, Gather Information, Intimidate, Knowledge (behavioral sciences, current events, popular culture, or streetwise), Sense Motive.
+Bonus Feat: Select either Iron Will or Wild Talent.
+Wealth Bonus: +2.
+
+Shadow Scholar
+Shadow scholars fall into two categories—learned Shadowkind and mundane folk who have spent time studying Shadow culture, magic, and other supernatural occurrences.
+Prerequisite: Age 15+.
+Skills: Choose three of the following skills as permanent class skills. If a skill you select is already a class skill, you receive a +1 competence bonus on checks using that skill. Decipher Script, Gather Information, Knowledge (arcane lore, art, behavioral sciences, earth and life sciences, history, physical sciences, tactics, or theology and philosophy), Research, or add a new Read/Write Language or a new Speak Language.
+Bonus Feat: Select either Arcane Skills or Educated.
+Wealth Bonus: +1.
+
+Squire
+Squires serve as assistants to warriors in hopes of learning the skills they will need to be warriors themselves one day.
+Prerequisite: Strength 13 or Dexterity 13.
+Skills: Choose three of the following skills as permanent class skills. If a skill you select is already a class skill, you receive a +1 competence bonus on checks using that skill. Balance, Climb, Handle Animal, Jump, Ride, Tumble.
+Bonus Feat: Select either Archaic Weapons Proficiency or Armor Proficiency (light).
+Wealth Bonus: +1.
+

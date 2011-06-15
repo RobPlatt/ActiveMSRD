@@ -8,6 +8,16 @@ class Feat < ActiveRecord::Base
     "#{id}-#{feat_name.downcase.gsub(/[^[:alnum:]]/,'-')}".gsub(/-{2,}/,'-')
   end
   
+  def <=>(other)
+    if self.feat_name < other.feat_name
+      return -1
+    elsif self.feat_name > other.feat_name
+      return 1
+    else
+      return 0
+    end
+  end
+  
   def self.seed(filename)
     firstline = true
     
@@ -16,6 +26,8 @@ class Feat < ActiveRecord::Base
     benefit = ""
     normal = ""
     special = ""
+    description = ""
+    setting = "core"
     
     count = 0
     
@@ -27,23 +39,45 @@ class Feat < ActiveRecord::Base
       
       if line.match /[A-Z]/
         if feat_name == nil
-          feat_name = line
+            x = line.match(/^START FEATS FOR: (.*)/)
+            if x
+              setting = x[1]
+            else
+              feat_name = line
+            end
         else
-          line.match(/^Prerequisite(s*): (.*)/) {|x| prerequisites = prerequisites + x[2]}
-          line.match(/^Benefit(s*): (.*)/) {|x| benefit = benefit + x[2]}
-          line.match(/^Normal: (.*)/) {|x| normal = normal + x[1]}
-          line.match(/^Special: (.*)/) {|x| special = special + x[1]}
+          matched = false
+          line.match(/^Prerequisite(s*): (.*)/) {|x|
+            prerequisites = prerequisites + x[2]
+            matched = true}  
+          line.match(/^Benefit(s*): (.*)/) {|x| benefit = benefit + x[2]
+            matched = true}
+          line.match(/^Normal: (.*)/) {|x| normal = normal + x[1]
+            matched = true}
+          line.match(/^Special: (.*)/) {|x| special = special + x[1]
+            matched = true}
+            
+          if matched == false
+            description = line
+          end
         end
       else
         if feat_name
+          # Title case for feat names. Leave hyphens alone.
+          if not feat_name.include?('-')
+            feat_name = feat_name.titleize
+          end
           Feat.find_or_create_by_feat_name(
               :feat_name => feat_name.rstrip).update_attributes(
+              :description => description.rstrip,
+              :setting => setting.rstrip,
               :prerequisite => prerequisites.rstrip,
               :benefit => benefit.rstrip,
               :normal => normal.rstrip,
               :special => special.rstrip
             )
           feat_name = nil
+          description = ""
           prerequisites = ""
           benefit = ""
           normal = ""

@@ -1,6 +1,6 @@
 <% @title="Editing " + @character.name %>
 <p>
-<%= link_to 'Cancel', :back %> |
+<%= link_to 'Cancel', character_path(@character) %> |
 <%= link_to 'Delete', @character, :confirm => 'Are you sure?', :method => :delete %>
 </p>
 <h1>Editing <%= @character.name %></h1>

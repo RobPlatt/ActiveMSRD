@@ -13,11 +13,11 @@ class Hash
 end
 
 class Character < ActiveRecord::Base
-  has_many :character_levels, :dependent => :destroy
+  has_many :character_levels, :dependent => :destroy, :order => 'level'
   has_many :class_levels, :through => :character_levels
   belongs_to :race
   has_one :character_occupation
-  has_many :character_skills, :dependent => :destroy
+  has_many :character_skills, :dependent => :destroy, :order => 'skill_id'
   has_many :skills, :through => :character_skills
   belongs_to :armor
   has_many :character_weapons, :dependent => :destroy
@@ -410,9 +410,19 @@ class Character < ActiveRecord::Base
     return count
   end
   
+  def occupation_feat
+    if character_occupation and character_occupation.occupation and character_occupation.occupation.feats.count > 0
+      return character_occupation.feat
+    end
+  end
+  
   def has_feat(featname)
     # TODO make this more railsy
     fid = Feat.find_by_feat_name(featname)
+    
+    if occupation_feat and occupation_feat.feat_name.downcase == featname.downcase
+      return true
+    end
     
     character_levels.each do |cl|
       cl.character_level_feats.each do |f|
@@ -427,6 +437,11 @@ class Character < ActiveRecord::Base
   
   def feats
     a = []
+
+    if occupation_feat
+      a.push(occupation_feat)
+    end
+    
     character_levels.each do |cl|
       cl.character_level_feats.each do |f|
         if f.feat

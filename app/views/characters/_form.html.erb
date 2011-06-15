@@ -59,9 +59,12 @@
 
   <div class="field">
     <%= f.fields_for(:character_occupation) do |builder| %>
-    <%= builder.label :occupation %><br />
-    <%= builder.collection_select(:occupation_id, Occupation.all, :id, :name, :prompt => true) %>
-    <%= builder.hidden_field :character_id %>
+      <%= builder.label :occupation %><br />
+      <%= builder.collection_select(:occupation_id, Occupation.all, :id, :name, :prompt => true) %>
+      <% if builder.object.occupation and builder.object.occupation.feats.count > 0 %>
+        <%= builder.collection_select(:feat_id, builder.object.occupation.feats, :id, :feat_name, :prompt => true) %>
+      <% end %>
+      <%= builder.hidden_field :character_id %>
     <% end %>
   </div>
   

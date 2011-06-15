@@ -72,6 +72,10 @@ class CharactersController < ApplicationController
       if character_level
         (character_level.num_feat_slots - character_level.character_level_feats.count).times {
           character_level.character_level_feats.create }
+        if character_level.class_level.talent and not character_level.character_level_class_talent
+          CharacterLevelClassTalent.create(:character_level_id => character_level.id)
+          #character_level.build_character_level_class_talent
+        end
       else
         build_level(@character, x)
       end

@@ -1,4 +1,3 @@
-  <div class="field">
     <tr>
     <td><%= f.label :level, f.object.level %></td>
      <%= f.hidden_field :level %>
@@ -19,5 +18,11 @@
         <%= builder.collection_select(:feat_id, f.object.feats_allowed(feat_number), :id, :feat_name, :prompt => true) %>
       </td>
     <% end %>
+    
+    <%= f.fields_for(:character_level_class_talent) do |builder| %>
+      <td>
+        <%= builder.collection_select(:class_talent_id, ClassTalent.all, :id, :talent_name, :prompt => true) %>    
+      </td>
+    <% end %>
+    
     </tr>
-  </div>

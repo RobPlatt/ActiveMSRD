@@ -4,7 +4,9 @@
 <%= link_to 'All Feats', feats_path %>
 
 <h1><%= @feat.feat_name %></h1>
-
+<% if not @feat.description.empty? %>
+<p><%= @feat.description %></p>
+<% end %>
 <% if not @feat.prerequisite.empty? %>
 <p><b>Prerequisite:</b> <%= @feat.prerequisite %></p>
 <% end %>
@@ -17,3 +19,4 @@
 <% if not @feat.special.empty? %>
 <p><b>Special:</b> <%= @feat.special %></p>
 <% end %>
+<p><b>Setting:</b> <%= @feat.setting %></p>

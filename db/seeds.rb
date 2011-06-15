@@ -97,7 +97,20 @@ Race.find_or_create_by_name(:name => 'gnome').update_attributes(
   { :name => 'gnome', :base_speed => 20, :size => 'small'})
   
   
-puts "Seeding MSRD classes..."
+puts "Seeding MSRD basic classes..."
+
+basic_class_features = [
+  { :talent => true },
+  { :bonus_feat => true },
+  { :talent => true },
+  { :bonus_feat => true },
+  { :talent => true },
+  { :bonus_feat => true },
+  { :talent => true },
+  { :bonus_feat => true },
+  { :talent => true },
+  { :bonus_feat => true }
+  ]
              
 strong_hero = ModernClass.find_or_create_by_class_name(:class_name => 'Strong Hero')
 strong_hero.update_attributes(
@@ -111,19 +124,7 @@ strong_hero.update_attributes(
     :action_points => 5,
     :hit_die => 8
   })
-ClassLevel.seed(strong_hero,
-  [
-  { },
-  { :bonus_feat => true },
-  { },
-  { :bonus_feat => true },
-  { },
-  { :bonus_feat => true },
-  { },
-  { :bonus_feat => true },
-  { },
-  { :bonus_feat => true }
-  ])
+ClassLevel.seed(strong_hero, basic_class_features)
 ClassSkill.seed(strong_hero,
 "Climb (Str), Craft (structural) (Int), Handle Animal (Cha), Jump (Str), Knowledge (current events, popular culture, streetwise, tactics) (Int), Profession (Wis), Read/Write Language (none), Repair (Int), Speak Language (none), and Swim (Str)"
 )
@@ -142,23 +143,13 @@ fast_hero.update_attributes(
     :action_points => 5,
     :hit_die => 8
   })
-ClassLevel.seed(fast_hero,
-  [
-  { },
-  { },
-  { },
-  { },
-  { },
-  { },
-  { },
-  { },
-  { },
-  { }
-  ])
+ClassLevel.seed(fast_hero, basic_class_features)
 ClassSkill.seed(fast_hero,
 "Balance (Dex), Craft (mechanical) (Int), Drive (Dex), Escape Artist (Dex), Hide (Dex), Knowledge (current events, popular culture, streetwise) (Int), Move Silently (Dex), Pilot (Dex), Profession (Wis), Read/Write Language (none), Ride (Dex), Sleight of Hand (Dex), Speak Language (none), and Tumble (Dex)."
 )
-
+ClassFeat.seed(fast_hero,
+"Acrobatic, Combat Expertise, Combat Throw, Defensive Martial Arts, Double Tap, Elusive Target, Focused, Improved Disarm, Mobility, Personal Firearms Proficiency, Point Blank Shot, Stealthy, Weapon Finesse"
+)
 tough_hero = ModernClass.find_or_create_by_class_name(:class_name => 'Tough Hero')
 tough_hero.update_attributes(
   {
@@ -171,23 +162,14 @@ tough_hero.update_attributes(
     :action_points => 5,
     :hit_die => 10
   })
-ClassLevel.seed(tough_hero,
-  [
-  { },
-  { },
-  { },
-  { },
-  { },
-  { },
-  { },
-  { },
-  { },
-  { }
-  ])
+ClassLevel.seed(tough_hero, basic_class_features)
 ClassSkill.seed(tough_hero,
 "Climb (Str), Concentration (Con), Craft (mechanical, structural) (Int), Drive (Dex), Intimidate (Cha), Knowledge (current events, popular culture, streetwise) (Int), Profession (Wis), Read/Write Language (none), Ride (Dex), Speak Language (none), Spot (Wis), and Survival (Wis)"
 )
-  
+ClassFeat.seed(tough_hero,
+"Alertness, Athletic, Brawl, Confident, Endurance, Great Fortitude, Improved Brawl, Improved Bull Rush, Improved Feint, Knockout Punch, Power Attack, Streetfighting, Toughness, Vehicle Expert"
+)
+
 smart_hero = ModernClass.find_or_create_by_class_name(:class_name => 'Smart Hero')
 smart_hero.update_attributes(
   {
@@ -200,21 +182,12 @@ smart_hero.update_attributes(
     :action_points => 5,
     :hit_die => 6
   })
-ClassLevel.seed(smart_hero,
-  [
-  { },
-  { },
-  { },
-  { },
-  { },
-  { },
-  { },
-  { },
-  { },
-  { }
-  ])
+ClassLevel.seed(smart_hero, basic_class_features)
 ClassSkill.seed(smart_hero,
 "Computer Use (Int), Craft (chemical, electronic, mechanical, pharmaceutical, structural, visual art, writing) (Int), Decipher Script (Int), Demolitions (Int), Disable Device (Int), Forgery (Int), Investigate (Int), Knowledge (arcane lore, art, behavioral sciences, business, civics, current events, earth and life sciences, history, physical sciences, popular culture, streetwise, tactics, technology, theology and philosophy) (Int), Navigate (Int), Profession (Wis), Read/Write Language (none), Repair (Int), Research (Int), Search (Int), and Speak Language (none)."
+)
+ClassFeat.seed(smart_hero,
+"Builder, Cautious, Combat Expertise, Educated, Gearhead, Improved Disarm, Improved Trip, Iron Will, Lightning Reflexes, Meticulous, Studious, Vehicle Expert, Weapon Focus"
 )
 
 dedicated_hero = ModernClass.find_or_create_by_class_name(:class_name => 'Dedicated Hero')
@@ -230,21 +203,12 @@ dedicated_hero.update_attributes(
     :action_points => 5,
     :hit_die => 6
   })
-ClassLevel.seed(dedicated_hero,
-  [
-  { },
-  { },
-  { },
-  { },
-  { },
-  { },
-  { },
-  { },
-  { },
-  { }
-  ])
+ClassLevel.seed(dedicated_hero, basic_class_features)
 ClassSkill.seed(dedicated_hero,
 "Craft (pharmaceutical, visual art, writing) (Int), Gamble (Wis), Investigate (Int), Knowledge (arcane lore, art, behavioral sciences, business, civics, current events, earth and life sciences, history, physical sciences, popular culture, streetwise, tactics, technology, theology and philosophy) (Int), Listen (Wis), Profession (Wis), Read/Write Language (none), Sense Motive (Wis), Speak Language (none), Spot (Wis), Survival (Wis), and Treat Injury (Wis")
+ClassFeat.seed(dedicated_hero,
+"Advanced Firearms Proficiency, Alertness, Archaic Weapons Proficiency, Attentive, Blind-Fight, Deceptive, Educated, Far Shot, Iron Will, Medical Expert, Meticulous, Surgery, Track, Weapon Focus"
+)
 
 charismatic_hero = ModernClass.find_or_create_by_class_name(:class_name => 'Charismatic Hero')
 charismatic_hero.update_attributes(
@@ -259,21 +223,13 @@ charismatic_hero.update_attributes(
     :action_points => 5,
     :hit_die => 6
   })
-ClassLevel.seed(charismatic_hero,
-  [
-  { },
-  { },
-  { },
-  { },
-  { },
-  { },
-  { },
-  { },
-  { },
-  { }
-  ])
+ClassLevel.seed(charismatic_hero, basic_class_features)
 ClassSkill.seed(charismatic_hero,
 "Bluff (Cha), Craft (visual art, writing) (Int), Diplomacy (Cha), Disguise (Cha), Gather Information (Cha), Handle Animal (Cha), Intimidate (Cha), Knowledge (arcane lore, art, behavioral sciences, business, civics, current events, popular culture, streetwise, theology and philosophy) (Int), Perform (act, dance, keyboards, percussion instruments, sing, stand-up, stringed instruments, wind instruments) (Cha), Profession (Wis), Read/Write Language (none), and Speak Language (none")
+ClassFeat.seed(charismatic_hero,
+"Agile Riposte, Creative, Deceptive, Dodge, Frightful Presence, Iron Will, Lightning Reflexes, Low Profile, Point Blank Shot, Renown, Trustworthy, Windfall"
+)
+
 puts "Seeding test characters..."
 
 tony_test = Character.find_or_create_by_name(:name => 'Tony Test')

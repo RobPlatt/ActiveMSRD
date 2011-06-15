@@ -5,6 +5,16 @@ class Occupation < ActiveRecord::Base
   has_many :skills, :through => :occupation_skills
   has_many :character_occupations
   
+  def <=>(other)
+    if self.name < other.name
+      return -1
+    elsif self.name > other.name
+      return 1
+    else
+      return 0
+    end
+  end
+  
   def self.seed(filename)
     firstline = true
     
