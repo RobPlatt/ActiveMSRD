@@ -7,7 +7,11 @@
 <%= link_to 'Delete', @character, :confirm => 'Are you sure?', :method => :delete %>
 </p>
 <h1><%= @character.name %></h1>
-<p><b><%= link_to @character.character_occupation.occupation.name, occupation_path(@character.character_occupation.occupation) %>
+<p>
+<b>
+<% if @character.character_occupation and @character.character_occupation.occupation %>
+<%= link_to @character.character_occupation.occupation.name, occupation_path(@character.character_occupation.occupation) %>
+<% end %>
 <%= raw(show_build(@character)) %>, CR</b><%= @character.challenge_rating %></p>
 <p>
 <%= raw(@description) %>
